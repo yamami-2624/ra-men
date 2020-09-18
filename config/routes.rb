@@ -1,21 +1,20 @@
 Rails.application.routes.draw do
-# 	devise_for :admin, controllers: {
-#     sessions: 'admin/sessions',
-#     passwords:     'admin/passwords',
-#     registrations: 'admin/registrations',
-#   }
-# end
-   # namespace :admin do
-   #   # get 'top' => 'homes#top', as: 'top'
-   #   # get 'search' => 'homes#search', as: 'search'
-   #   # get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
-   #  resources :homes
-   #  resources :raamens
-   #  resources :reviews
-   #  resources :shops
-   #  resources :admins
-   #  resources :genres
-   # end
+	devise_for :admin, controllers: {
+    sessions: 'admin/sessions',
+    passwords:     'admin/passwords',
+    registrations: 'admin/registrations',
+  }
+  namespace :admin do
+     # get 'top' => 'homes#top', as: 'top'
+     # get 'search' => 'homes#search', as: 'search'
+     # get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
+    resources :homes
+    resources :raamens
+    resources :reviews
+    resources :shops
+    resources :admins
+    resources :genres
+  end
 
 
   devise_for :users, controllers: {
@@ -31,4 +30,5 @@ Rails.application.routes.draw do
     resources :admins
     resources :genres
 end
+
 

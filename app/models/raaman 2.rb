@@ -1,0 +1,2 @@
+class Raaman < ApplicationRecord
+end
