@@ -1,0 +1,53 @@
+<section class="inner">
+	<h2 class="section-ttl">商品詳細</h2>
+	<div class="flex">
+		<div>
+			<div class="image_field">
+				<%= attachment_image_tag @raamen, :raamen_image, format: "jpeg", id: "img_prev", fallback: "no_image.png", class: "raamen_image" %>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>商品名</td>
+					<td><%= @raamen.name %></td>
+				</tr>
+				<tr>
+					<td>商品説明</td>
+					<td><%= @raamen.text %></td>
+				</tr>
+				<tr>
+					<td>味</td>
+					<td><%= @raamen.genre.aji %></td>
+				</tr>
+				<tr>
+					<td>出汁</td>
+					<td><%= @raamen.genre.dashi %></td>
+				</tr>
+				<tr>
+					<td>商品価格</td>
+					<td><%= @raamen.price %>円</td>
+				</tr>
+				<tr>
+					<td>販売ステータス</td>
+					<td>
+						<% if @raamen.is_active? %>
+							<span class="text-active">販売中</span>
+						<% else %>
+							<span class="text-invalid">販売停止中</span>
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="flex align-center pl5">
+			<%= link_to "編集する", edit_admin_raamen_path(@raamen), class: "btn btn-success" %>
+		</div>
+	</div>
+</section>

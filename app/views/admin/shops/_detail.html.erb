@@ -1,0 +1,43 @@
+<table class="table">
+	<div>
+		<div class="image_field">
+		<%= attachment_image_tag shop, :shop_image, format: "jpeg", id: "img_prev", fallback: "no_image.jpg", class: "shop_image" %>
+		</div>
+	</div>
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>店名</td>
+			<td><%= shop.name %></td>
+		</tr>
+		<tr>
+			<td>店紹介</td>
+			<td><%= shop.text %></td>
+		</tr>
+		<tr>
+	    	<td>住所</td>
+			<td><%= shop.address %></td>
+    	</tr>
+		<tr>
+			<td>電話番号</td>
+			<td><%= shop.phone_number %></td>
+		</tr>
+		<tr>
+			<td>営業時間</td>
+			<td><%= shop.business_hours %>円</td>
+		</tr>
+		<tr>
+			<td>席数</td>
+			<td><%= shop.number_of_seats %>円</td>
+		</tr>
+		<tr>
+			<td>アクセス</td>
+			<td><%= shop.access %>円</td>
+		</tr>
+	</tbody>
+</table>
