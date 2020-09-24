@@ -1,47 +1,45 @@
 class Admin::RaamensController < ApplicationController
 	  def new
+      @shop = Shop.find(params[:shop_id])
     	@raamen = Raamen.new
     end
 
   	def index
-	   #  if params[:genre_id]
-	   #    @genre = Genre.find(params[:genre_id])
-	   #    all_items = @genre.items
-    # else
-    #   	all_items = Item.includes(:genre)
-    # end
-	   #  @items = all_items.page(params[:page])
-	   #  @all_items_count = all_items.count
-       @raamens = Raamens.all
+      shop = Shop.find(params[:id])
+      raamens = shop.raamen
+      @raamens = raamens.all
  	  end
 
-  	def create
-   	 # @item = Item.new(item_params)
-   	 # @item.save ? (redirect_to admin_item_path(@item)) : (render :new)
-   	 @raamen = Raamen.new(raamen_params)
-      if @raamen.save
-        redirect_to admin_raamens_path
+    def create
+      shop = Shop.find(params[:shop_id])
+      raamen = Raamen.new(raamen_params)
+      raamen.shop_id = shop.id
+      if raamen.save!
+        redirect_to admin_shop_path(shop)
       else
-        @raamens = Raamens.all
-        render :index
-    	end
+        render :new
+      end
     end
 
- 	def show
- 		@raamen = Raamen.find(params[:id])
+ 	  def show
+      @shop = Shop.find(params[:shop_id])
+ 		  @raamen = Raamen.find(params[:id])
   	end
 
   	def edit
+      @shop = Shop.find(params[:shop_id])
   		@raamen = Raamen.find(params[:id])
   	end
 
   	def update
-    	@raamne.update(raamen_params) ? (redirect_to admin_raamnen_path(@raamen)) : (render :edit)
+      shop = Shop.find(params[:shop_id])
+      @raamen = Raamen.find(params[:id])
+    	@raamen.update(raamen_params) ? (redirect_to admin_shop_path(shop)) : (render :edit)
   	end
 
   	private
   	def raamen_params
-    	params.require(:raamen).permit(:genre_id, :review_id, :name, :price, :raamen_image_id, :text, :is_active)
+    	params.require(:raamen).permit(:shop_id, :aji, :dashi, :review_id, :name, :price, :raamen_image_id, :text, :is_active)
   	end
   	# def ensure_item
    #  	@item = Item.find(params[:id])

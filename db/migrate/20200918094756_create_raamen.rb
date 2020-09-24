@@ -8,6 +8,8 @@ class CreateRaamen < ActiveRecord::Migration[5.2]
     	t.string :raamen_image_id
     	t.string :text, null: false
       t.boolean :is_active, default: true
+      t.string :aji, null: false
+      t.string :dashi, null: false
       t.timestamps
     end
   end
