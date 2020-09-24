@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+			<h2 class="section-ttl">レビューの保存</h2>
+		  <%= render 'admin/raamens/form', raamen: @raamen, review: @review url: admin_shop_raamen_reviews_path(@raamen, @shop, @review), submit: '保存' %>
+		</div>
+	</div>
+</div>

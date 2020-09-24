@@ -10,12 +10,14 @@ Rails.application.routes.draw do
      # get 'top' => 'homes#top', as: 'top'
      # get 'search' => 'homes#search', as: 'search'
      # get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
-    resources :homes
-    resources :raamens
-    resources :reviews
-    resources :shops
     resources :admins
     resources :genres
+    resources :homes
+    resources :shops do
+      resources :raamens do
+        resources :reviews
+      end
+    end
   end
 
 
@@ -31,5 +33,8 @@ Rails.application.routes.draw do
     resources :shops
     resources :admins
     resources :genres
+
+    root to: "homes#top"
 end
+
 

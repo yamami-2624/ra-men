@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
-	has_many :users
-	has_many :raamens
+	belongs_to :user
+	belongs_to :raamen
+	attachment :review_image
 end

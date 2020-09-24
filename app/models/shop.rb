@@ -1,4 +1,4 @@
 class Shop < ApplicationRecord
-	belongs_to :raamen, optional: true
+	has_many :raamens
 	attachment :shop_image
 end

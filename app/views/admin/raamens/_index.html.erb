@@ -15,12 +15,12 @@
 		<tbody>
 			<% raamens.each do |raamen| %>
 				<tr>
-					<td><%= link_to raamen.name, admin_raamen_path(raamen), class: "underline" %></td>
+					<td><%= link_to raamen.name, admin_shop_raamen_path(raamen,shop), class: "underline" %></td>
 					<td><%= raamen.text %></td>
 					<td>
 					<td><%= raamen.price %>円</td>
-					<td><%= raamen.genre.aji %></td>
-					<td><%= raamen.genre.dashi %></td>
+					<td><%= raamen.aji %></td>
+					<td><%= raamen.dashi %></td>
 					<td>
 						<% if raamen.is_active? %>
 							<span class="text-active">販売中</span>
