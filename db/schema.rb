@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_070536) do
+ActiveRecord::Schema.define(version: 2020_09_26_075609) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_09_24_070536) do
   end
 
   create_table "raamen", force: :cascade do |t|
-    t.integer "genre_id"
     t.integer "review_id"
     t.string "name", null: false
     t.string "price", null: false
@@ -40,6 +39,9 @@ ActiveRecord::Schema.define(version: 2020_09_24_070536) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.integer "raamen_id"
     t.string "review", null: false
     t.string "review_image_id"
     t.string "topping", null: false
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_070536) do
 
   create_table "shops", force: :cascade do |t|
     t.integer "raamen_id"
+    t.integer "review_id"
     t.string "name", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
@@ -61,6 +64,8 @@ ActiveRecord::Schema.define(version: 2020_09_24_070536) do
     t.string "parking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,18 +1,71 @@
-<h2>gmap</h2>
-<div id='map'></div>
-
-<style>
-#map{
-  height: 400px;
-}
-</style>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-1">
+        	<h1>ラーメンを食べに行こう！！</h1>
+        </div>
+        <div class="col-xs-10 col-xs-offset-1">
+        	<table class="table">
+        		<thead>
+        		</thead>
+        		<tbody>
+        			<tr>
+        				<td>
+							<%= form_with(url: shops_path, local: true, method: :get, class: "search-form") do |form| %>
+								<%= form.text_field :keyword, placeholder: "店を検索する", class: "search-input" %>
+								<%= form.submit "検索", class: "search-btn" %>
+							<% end %>
+						</td>
+						<td>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h4>現在地から選ぶ</h4>
+			<input id="address" type="textbox" value="Sydney, NSW">
+      <input type="button" value="Encode" onclick="codeAddress()">
+			<div id='map'></div>
+		</div>
+	</div>
+</div>
 
 <script>
+let mapInstance //この変数はmap.js.erbでも使うのでタイプミスに注意
 function initMap(){
-  let map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 8
+      geocoder = new google.maps.Geocoder()
+
+      map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 35.68123620000001, lng:139.7671248},
+          zoom: 12,
+      });
+}
+
+function codeAddress(){
+  // 入力を取得
+  let inputAddress = document.getElementById('address').value;
+
+  // geocodingしたあとmapを移動
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+　　　　　　　　　　　　// map.setCenterで地図が移動
+      map.setCenter(results[0].geometry.location);
+
+　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
   });
 }
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6GaYTpHxItj43JSE_FXxm8Kpk2syiog&callback=initMap" async defer></script>
+
+<style>
+	#map {
+		width: 700px;
+    height: 400px;
+	}
+</style>

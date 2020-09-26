@@ -1,7 +1,7 @@
 class Admin::RaamensController < ApplicationController
 	  def new
       @shop = Shop.find(params[:shop_id])
-    	@raamen = Raamen.new
+      @raamen = Raamen.new
     end
 
   	def index
@@ -14,7 +14,7 @@ class Admin::RaamensController < ApplicationController
       shop = Shop.find(params[:shop_id])
       raamen = Raamen.new(raamen_params)
       raamen.shop_id = shop.id
-      if raamen.save!
+      if raamen.save
         redirect_to admin_shop_path(shop)
       else
         render :new
@@ -39,8 +39,10 @@ class Admin::RaamensController < ApplicationController
 
   	private
   	def raamen_params
-    	params.require(:raamen).permit(:shop_id, :aji, :dashi, :review_id, :name, :price, :raamen_image_id, :text, :is_active)
+    	params.permit(:shop_id, :aji, :dashi, :review_id, :name, :price, :raamen_image_id, :text, :is_active, :created_at, :updated_at)
   	end
+
+
   	# def ensure_item
    #  	@item = Item.find(params[:id])
    #  end

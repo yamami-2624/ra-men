@@ -29,18 +29,14 @@
 							<td><%= @review.topping %></td>
 						</tr>
 						<tr>
-							<td>オプション</td>
-							<td><%= @review.option %></td>
-						</tr>
-						<tr>
 							<td>点数</td>
-							<td><%= @raamen.tennsuu %>円</td>
+							<td><%= @review.tennsuu %>円</td>
 						</tr>
 						<tr>
 					</tbody>
 				</table>
 				<div class="flex align-center pl5">
-					<%= link_to "編集する", edit_admin_shop_raamen_review_path(@raamen,@shop,@raamen), class: "btn btn-success" %>
+					<%= link_to "編集する", edit_shop_raamen_review_path(@raamen,@review), class: "btn btn-success" %>
 				</div>
 			</div>
 		</div>
