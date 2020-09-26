@@ -2,6 +2,7 @@ class CreateShops < ActiveRecord::Migration[5.2]
   def change
     create_table :shops do |t|
     	t.integer :raamen_id
+      t.integer :review_id
       t.string :name, null: false
     	t.string :address, null: false
     	t.string :phone_number, null: false

@@ -4,22 +4,19 @@
 			<h2 class="section-ttl">店詳細</h2>
 			<div class="flex">
 				<%= render 'admin/shops/detail', shop: @shop %>
-				<div class="flex align-center pl5">
-					<%= link_to "編集する", edit_admin_shop_path(@shop), class: "btn btn-success" %>
-				</div>
 			</div>
 		</section>
 	</div>
 </div>
     <div class="row">
         <div class="col-xs-7 col-xs-offset-1">
-        	<%= render 'admin/raamens/index', raamens: @raamens, url: admin_raamens_path(@raamens) %>
+        	<%= render 'reviews/index', shop: @shop %>
         </div>
     </div>
 </div>
     <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
-        	<%= link_to "口コミを投稿する", new_review_path(Review.new), class: "btn btn-success" %>
+        	<%= link_to "口コミを投稿する", shop_raamens_path(@shop), class: "btn btn-success" %>
         </div>
     </div>
 </div>

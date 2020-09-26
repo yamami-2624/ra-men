@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-1">
+        	<div class="container">
+			<% if @raamens == nil %>
+				<h2>ラーメンの登録はまだありません</h2>
+			<% else %>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>商品名</th>
+							<th>商品説明</th>
+							<th>価格</th>
+							<th>味</th>
+							<th>出汁</th>
+							<th>販売ステータス</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @raamens.each do |raamen| %>
+							<tr>
+								<td><%= link_to raamen.name, new_shop_raamen_review_path(raamen,@shop), class: "underline" %></td>
+								<td><%= raamen.text %></td>
+								<td>
+								<td><%= raamen.price %>円</td>
+								<td><%= raamen.aji %></td>
+								<td><%= raamen.dashi %></td>
+								<td>
+									<% if raamen.is_active? %>
+										<span class="text-active">販売中</span>
+									<% else %>
+										<span class="text-invalid">販売停止中</span>
+									<% end %>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>

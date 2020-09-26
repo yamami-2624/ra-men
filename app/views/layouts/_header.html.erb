@@ -6,17 +6,10 @@
     <nav>
       <ul class="nav navbar-nav navbar-right navbar-white bg-white">
         <% if user_signed_in? %>
-          　<li>
-             <p style="color: white; margin-right: 40px; margin-top: 15px;">
-              ようこそ、
-              <%= current_user.last_name %>
-              さん !
-             </p>
-            </li>
-            <li><%= link_to ' マイページ',customers_my_page_path %></li>
-            <li><%= link_to ' 商品一覧',products_path %></li>
-            <li><%= link_to ' カート', cart_items_path %></li>
-            <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete %></li>
+            <li><%= link_to ' トップ',customers_my_page_path %></li>
+            <li><%= link_to ' 検索',products_path %></li>
+            <li><%= link_to ' ランキング', cart_items_path %></li>
+            <li><%= link_to ' ログイン', destroy_customer_session_path, method: :delete %></li>
         <% elsif admin_signed_in? %>
             <li><%= link_to ' 商品一覧',admin_products_path %></li>
             <li><%= link_to ' 会員一覧',admin_customers_path %></li>
@@ -27,7 +20,6 @@
        　　<li><%= submit_tag "検索" %></li>
         <% else %>
             <li><%= link_to ' About',customers_about_path %></li>
-            <li><%= link_to ' 商品一覧',products_path %></li>
             <li><%= link_to ' 新規登録', new_customer_registration_path %></li>
             <li><%= link_to ' ログイン', new_customer_session_path %></li>
         <% end %>

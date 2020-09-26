@@ -7,9 +7,6 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations',
   }
   namespace :admin do
-     # get 'top' => 'homes#top', as: 'top'
-     # get 'search' => 'homes#search', as: 'search'
-     # get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
     resources :admins
     resources :genres
     resources :homes
@@ -20,21 +17,28 @@ Rails.application.routes.draw do
     end
   end
 
-
+  get "shops/top" => "shops#top"
+  get '/map_request', to: 'shops#map', as: 'map_request'
   devise_for :users, controllers: {
     sessions:      'customers/sessions',
     passwords:     'customers/passwords',
     registrations: 'customers/registrations',
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-    resources :homes
-    resources :raamens
-    resources :reviews
-    resources :shops
-    resources :admins
     resources :genres
-
-    root to: "homes#top"
-end
+    resources :homes
+    resources :shops do
+      member do
+        get "search"
+      end
+      resources :raamens do
+        member do
+        get "search"
+      end
+        resources :reviews
+      end
+    end
+    get '/admin/raamens' => 'admin/raamens#index'
+  end
 
 
