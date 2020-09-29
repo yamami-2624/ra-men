@@ -12,8 +12,7 @@ class Admin::RaamensController < ApplicationController
 
     def create
       shop = Shop.find(params[:shop_id])
-      raamen = Raamen.new(raamen_params)
-      raamen.shop_id = shop.id
+      raamen = Raamen.new(raamen_params.merge(shop_id: shop.id))
       if raamen.save
         redirect_to admin_shop_path(shop)
       else
@@ -39,7 +38,7 @@ class Admin::RaamensController < ApplicationController
 
   	private
   	def raamen_params
-    	params.permit(:shop_id, :aji, :dashi, :review_id, :name, :price, :raamen_image_id, :text, :is_active, :created_at, :updated_at)
+      params.require(:raamen).permit(:aji, :dashi, :review_id, :name, :price, :raamen_image_id, :text, :is_active)
   	end
 
 

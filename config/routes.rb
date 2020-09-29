@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   end
 
   get "shops/top" => "shops#top"
+  get "/ranking" , to: "shops#ranking" , as: "ranking"
   get '/map_request', to: 'shops#map', as: 'map_request'
+  get '/search', to: 'shops#search', as: 'search'
   devise_for :users, controllers: {
     sessions:      'customers/sessions',
     passwords:     'customers/passwords',

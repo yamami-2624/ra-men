@@ -9,26 +9,20 @@ class ShopsController < ApplicationController
 
   	def top
   		# shop = Shop.find(params[:id])
-  		@shop = Shop.search(params[:search])
       @shops = Shop.all
   	end
 
-  	def map
-      #場所検索
-  		# results = Geocoder.search(params[:keyword])
-  		# @latlng = results.first.coordinates
+  	def ranking
+      tennsuu = Shop.joins(:reviews).group(:shop_id).average(:tennsuu)
+      shop_ids = Hash[tennsuu.sort_by{ |_, v| -v }].keys
+      @shop_ranking = Shop.where(id: shop_ids)
 
-  		# respond_to do |format|
-    #     	format.js
-    #     end
+      @shop_new = Shop.all.order("id DESC")
     end
 
   	def search
-    	@shops = Shop.search(params[:keyword])
-    	latitude = params[:latitude]
-		　longitude = params[:longitude]
-		　@places = Shop.all.within(2, origin: [latitude, longitude])
- 	end
+      @shops = Shop.search(params[:search])
+ 	  end
 
  	private
 	def shop_params

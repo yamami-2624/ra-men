@@ -1,35 +1,47 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-6 col-xs-offset-1">
+        <div class="col-xs-3">
         	<h1>ラーメンを食べに行こう！！</h1>
-        </div>
-        <div class="col-xs-10 col-xs-offset-1">
-        	<table class="table">
-        		<thead>
-        		</thead>
         		<tbody>
         			<tr>
         				<td>
-							<%= form_with(url: shops_path, local: true, method: :get, class: "search-form") do |form| %>
-								<%= form.text_field :keyword, placeholder: "店を検索する", class: "search-input" %>
-								<%= form.submit "検索", class: "search-btn" %>
-							<% end %>
-						</td>
-						<td>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<h4>現在地から選ぶ</h4>
-			<input id="address" type="textbox" value="Sydney, NSW">
-      <input type="button" value="Encode" onclick="codeAddress()">
-			<div id='map'></div>
-		</div>
-	</div>
+                <h4>店名から選ぶ</h4>
+                <%= form_with(scope: :search, url: search_path, method: :get, local: true) do |f| %>
+                  <%= f.label(:name, '名前') %>
+                  <%= f.text_field :name %>
+                  <%= f.submit('検索') %>
+                <% end %>
+						    </td>
+              <tr>
+                <h4>場所から選ぶ</h4>
+                <input id="address" type="textbox" value="東京駅">
+                <input type="button" value="検索" onclick="codeAddress()">
+					    </tr>
+              <tr>
+                <h4>現在地から選ぶ</h4>
+                <button id="getcurrentlocation">移動する</button>
+              </tr>
+              <tr>
+                <h4>ランキングから選ぶ</h4>
+                <%= link_to "移動", ranking_path, class: "btn btn-success" %>
+              </tr>
+				    </tbody>
+        </div>
+    </div>
+    <div class="row">
+          <div class="col-xs-9 col-xs-offset-3">
+            <div id='map'></div>
+          </div>
+    </div>
 </div>
 
 <script>
-let mapInstance //この変数はmap.js.erbでも使うのでタイプミスに注意
+let mapInstance
+let map;
+// let marker = []; // マーカーを複数表示させたいので、配列化
+var infoWindow;
+let markerData = shops; // コントローラーで定義したインスタンス変数を変数に代入
+
 function initMap(){
       geocoder = new google.maps.Geocoder()
 
@@ -37,35 +49,107 @@ function initMap(){
           center: {lat: 35.68123620000001, lng:139.7671248},
           zoom: 12,
       });
-}
+     <% @shops.each do |s| %>
+          (function(){
+          var contentString = "住所：<%= s.address %>"
 
-function codeAddress(){
-  // 入力を取得
-  let inputAddress = document.getElementById('address').value;
+          var marker = new google.maps.Marker({
+              position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
+              map: map,
+              title: contentString
+            });
 
-  // geocodingしたあとmapを移動
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
-　　　　　　　　　　　　// map.setCenterで地図が移動
-      map.setCenter(results[0].geometry.location);
+              infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+              content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
+            });
 
-　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+              marker.addListener('click', function() { // マーカーをクリックしたとき
+              infoWindow.open(map, marker); // 吹き出しの表示
+            });
+          })();
+    <% end %>
+
+
+document.getElementById('getcurrentlocation').onclick = function() {
+      geoLocationInit();
     }
-  });
-}
+
+    function geoLocationInit() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(success, fail);
+
+        } else {
+          createMap(pyrmont);
+      }
+    }
+
+   // success
+   function success(position) {
+     var currentLat = position.coords.latitude;
+     var currentLng = position.coords.longitude;
+
+     var pyrmont = new google.maps.LatLng(currentLat,currentLng);
+
+     createMap(pyrmont)
+
+     CurrentPositionMarker(pyrmont);
+   }
+
+    // fail
+    function fail(pyrmont) {
+      createMap(pyrmont);
+    }
+
+    function createMap(pyrmont) {
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: pyrmont,
+        zoom: 15
+      });
+      nearbysearch(pyrmont)
+    }
+
+
+    // 現在地のアイコンを表示
+    function CurrentPositionMarker(pyrmont) {
+        var image = 'no_image.jpg';
+        var marker = new google.maps.Marker({
+                position: pyrmont,
+                map: map,
+                icon: image
+            });
+        marker.setMap(map);
+    }
+  }
+
+
+    function codeAddress(){
+      // 入力を取得
+      let inputAddress = document.getElementById('address').value;
+
+      // geocodingしたあとmapを移動
+      geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+        if (status == 'OK') {
+    　　　　　　　　　　　　// map.setCenterで地図が移動
+          map.setCenter(results[0].geometry.location);
+    　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+         // var marker = new google.maps.Marker({
+         //      map: map,
+         //      position: results[0].geometry.location
+         //  });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6GaYTpHxItj43JSE_FXxm8Kpk2syiog&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpV0rqVCjeiHMyw6HDLo6Plf778CE3Ai4&callback=initMap" async defer></script>
 
 <style>
 	#map {
 		width: 700px;
-    height: 400px;
+    height: 600px;
 	}
 </style>

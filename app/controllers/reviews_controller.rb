@@ -41,6 +41,9 @@ class ReviewsController < ApplicationController
     	@raamen.update(raamen_params) ? (redirect_to admin_shop_path(shop)) : (render :edit)
   	end
 
+    def ranking
+    end
+
   	private
   	def review_params
     	params.require(:review).permit(:review, :topping, :tennsuu, :review_image_id)
