@@ -69,3 +69,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'geocoder'
 gem 'geokit-rails'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
