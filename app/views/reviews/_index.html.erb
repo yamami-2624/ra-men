@@ -1,7 +1,7 @@
 <% if shop.reviews == nil %>
 	<h2>レビューの登録はまだありません</h2>
 <% else %>
-<h2><%= shop.name %>のレビュー一覧</h2>
+	<h2><%= shop.name %>のレビュー一覧</h2>
 	<table class="table">
 		<thead>
 			<tr>
@@ -26,4 +26,13 @@
 			<% end %>
 		</tbody>
 	</table>
+<% end %>
+<% star = shop.reviews.average(:tennsuu).ceil.to_s %>
+<% if star == nil %>
+	<%= image_tag "star0.png", :sizw => "70*20" %>
+	<h4>まだレビューがありません</h4>
+<% else %>
+	<% file = "star"+star+".png" %>
+	<%= image_tag file, :sizw => "70*20" %>
+	<%= shop.reviews.average(:tennsuu).round(2) %>
 <% end %>

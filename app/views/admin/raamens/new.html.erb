@@ -2,9 +2,7 @@
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
 			<h2>ラーメンの登録</h2>
-			<%= form_for [:admin, @shop, @raamen], :url=>{:action=>'create'} do |f| %>
-		  		<%= render "form", shop: @shop, raamen: Raamen.new, f: f,  html: {method: "POST"}, submit: '登録' %>
-		  	<% end %>
+				<%= render partial: "form", :locals => {raamen: @raamen, shop_id: @shop.id, submit: '登録'}, url: admin_shop_raamens_path(@shop.id) %>
 		</div>
 	</div>
 </div>
