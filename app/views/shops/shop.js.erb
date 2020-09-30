@@ -9,7 +9,7 @@ function getLocation() {
 function showPosition(position) {
 $.ajax({
   type: 'GET',
-  url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&sensor=true&key=AIzaSyCpV0rqVCjeiHMyw6HDLo6Plf778CE3Ai4&language=en`,
+  url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&sensor=true&key=AIzaSyDpE1N1jyqshzxRVMQyqRgD2MXCILhif74&language=en`,
   }).then(function(response){
     console.log(response);
   })
