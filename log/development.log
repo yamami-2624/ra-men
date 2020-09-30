@@ -30668,3 +30668,45 @@ Processing by ShopsController#search as HTML
 Completed 200 OK in 27ms (Views: 23.4ms | ActiveRecord: 0.4ms)
 
 
+Completed 200 OK in 44ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+
+
+"shops"[0m
+0.0/127.255.255.255
+iews"."shop_id" = ?[0m  [["shop_id", 2]]
+s"."shop_id" = "shops"."id" GROUP BY "shop_id"[0m
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       rb within layouts/application
+  [1m[36mShop Load (2.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 655ms (Views: 630.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/ranking" for 10.0.2.2 at 2020-09-30 09:02:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#ranking as HTML
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT AVG(tennsuu) AS average_tennsuu, "shop_id" AS shop_id FROM "shops" INNER JOIN "reviews" ON "reviews"."shop_id" = "shops"."id" GROUP BY "shop_id"[0m
+  ↳ app/controllers/shops_controller.rb:16
+  Rendering shops/ranking.html.erb within layouts/application
+  [1m[36mShop Load (0.9ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/shops/ranking.html.erb:19
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."tennsuu") FROM "reviews" WHERE "reviews"."shop_id" = ?[0m  [["shop_id", 2]]
+  ↳ app/views/shops/ranking.html.erb:23
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."tennsuu") FROM "reviews" WHERE "reviews"."shop_id" = ?[0m  [["shop_id", 2]]
+  ↳ app/views/shops/ranking.html.erb:26
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" ORDER BY id DESC[0m
+  ↳ app/views/shops/ranking.html.erb:43
+  Rendered shops/ranking.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 65ms (Views: 42.9ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:04:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 44ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+
+
