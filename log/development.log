@@ -30668,14 +30668,20 @@ Processing by ShopsController#search as HTML
 Completed 200 OK in 27ms (Views: 23.4ms | ActiveRecord: 0.4ms)
 
 
-Completed 200 OK in 44ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+Started GET "/" for 10.0.2.2 at 2020-09-30 09:02:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.0ms)
 
 
-"shops"[0m
-0.0/127.255.255.255
-iews"."shop_id" = ?[0m  [["shop_id", 2]]
-s"."shop_id" = "shops"."id" GROUP BY "shop_id"[0m
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       rb within layouts/application
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:02:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
   [1m[36mShop Load (2.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
   ↳ app/views/shops/top.html.erb:52
   Rendered shops/top.html.erb within layouts/application (29.8ms)
@@ -30708,5 +30714,730 @@ Processing by ShopsController#top as HTML
   ↳ app/views/shops/top.html.erb:52
   Rendered shops/top.html.erb within layouts/application (4.3ms)
 Completed 200 OK in 44ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:29:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (1.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 465ms (Views: 452.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:30:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 30ms (Views: 26.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:32:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.9ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 515ms (Views: 503.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search%5Bname%5D=ss&commit=%E6%A4%9C%E7%B4%A2" for 10.0.2.2 at 2020-09-30 09:32:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#search as HTML
+  Parameters: {"utf8"=>"✓", "search"=>{"name"=>"ss"}, "commit"=>"検索"}
+  Rendering shops/search.html.erb within layouts/application
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE (name LIKE('%{"name"=>"ss"}%'))[0m
+  ↳ app/views/shops/search.html.erb:12
+  Rendered shops/search.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 32ms (Views: 28.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:33:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.9ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 470ms (Views: 459.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:35:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (1.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 441ms (Views: 430.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:36:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.9ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 66ms (Views: 59.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:36:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.7ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:36:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (2.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 512ms (Views: 496.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:36:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:37:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (1.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 472ms (Views: 461.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:49:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (1.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 453ms (Views: 438.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:51:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  Rendered shops/top.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 358ms (Views: 348.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:51:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 74ms (Views: 66.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 09:52:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  Rendered shops/top.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 41ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "//admin/shops/new" for 10.0.2.2 at 2020-09-30 09:53:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Admin::ShopsController#new as HTML
+  Rendering admin/shops/new.html.erb within layouts/application
+  Rendered admin/shops/_form.html.erb (508.1ms)
+  Rendered admin/shops/new.html.erb within layouts/application (515.0ms)
+Completed 200 OK in 580ms (Views: 552.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/admin/shops" for 10.0.2.2 at 2020-09-30 09:53:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UXLG8LOVAYUop43bXEFpz85kT9m204o1cTmcKRzcO4bHpJ1ZgLUiPlwygSqKELayRQe4/ZxDW2rJKvCfprGQVg==", "shop"=>{"name"=>"aa", "text"=>"sss", "address"=>"松戸市", "phone_number"=>"1111", "business_hours"=>"１２時", "number_of_seats"=>"５席\r\n", "access"=>"徒歩"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "phone_number", "business_hours", "number_of_seats", "access", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "aa"], ["address", "松戸市"], ["phone_number", "1111"], ["business_hours", "１２時"], ["number_of_seats", "５席\r\n"], ["access", "徒歩"], ["text", "sss"], ["created_at", "2020-09-30 09:53:54.798511"], ["updated_at", "2020-09-30 09:53:54.798511"]]
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+Redirected to http://localhost:3000/admin/shops
+Completed 302 Found in 496ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/admin/shops" for 10.0.2.2 at 2020-09-30 09:53:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#index as HTML
+  Rendering admin/shops/index.html.erb within layouts/application
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/admin/shops/index.html.erb:12
+  Rendered admin/shops/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20200918091002)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918091002_devise_create_users.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200918091002_devise_create_users.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200918091002_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918091002"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateAdmins (20200918091450)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918091450_devise_create_admins.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  ↳ db/migrate/20200918091450_devise_create_admins.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  ↳ db/migrate/20200918091450_devise_create_admins.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918091450"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateShops (20200918094657)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "raamen_id" integer, "review_id" integer, "name" varchar NOT NULL, "address" varchar NOT NULL, "phone_number" varchar NOT NULL, "business_hours" varchar, "number_of_seats" varchar, "shop_image_id" varchar, "access" varchar, "text" varchar, "parking" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918094657_create_shops.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918094657"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateReviews (20200918094733)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "shop_id" integer, "raamen_id" integer, "review" varchar NOT NULL, "review_image_id" varchar, "topping" varchar NOT NULL, "tennsuu" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918094733_create_reviews.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918094733"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateRaamen (20200918094756)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "raamen" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "review_id" integer, "name" varchar NOT NULL, "price" varchar NOT NULL, "raamen_image_id" varchar, "text" varchar NOT NULL, "is_active" boolean DEFAULT 1, "aji" varchar NOT NULL, "dashi" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918094756_create_raamen.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918094756"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddShopIdToRaamen (20200924070536)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "raamen" ADD "shop_id" integer[0m
+  ↳ db/migrate/20200924070536_add_shop_id_to_raamen.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200924070536"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddCoordinateToShops (20200926075609)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "shops" ADD "latitude" float[0m
+  ↳ db/migrate/20200926075609_add_coordinate_to_shops.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "shops" ADD "longitude" float[0m
+  ↳ db/migrate/20200926075609_add_coordinate_to_shops.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200926075609"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-30 09:54:18.341191"], ["updated_at", "2020-09-30 09:54:18.341191"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/admin/shops" for 10.0.2.2 at 2020-09-30 09:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Admin::ShopsController#index as HTML
+  Rendering admin/shops/index.html.erb within layouts/application
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/admin/shops/index.html.erb:12
+  Rendered admin/shops/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 426ms (Views: 413.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "//admin/shops/new" for 10.0.2.2 at 2020-09-30 09:54:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#new as HTML
+  Rendering admin/shops/new.html.erb within layouts/application
+  Rendered admin/shops/_form.html.erb (20.0ms)
+  Rendered admin/shops/new.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 74ms (Views: 56.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/admin/shops" for 10.0.2.2 at 2020-09-30 09:55:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3sz7yMcAQZERAaoNQXECS6mzC/GO5HoP6TmfmtOgNcVIGqBh9CBiKmWUpvyXIN02ItD81aR0q1BRKvMsac2eFQ==", "shop"=>{"name"=>"aa", "text"=>"aaa", "address"=>"松戸市", "phone_number"=>"1111", "business_hours"=>"17時", "number_of_seats"=>"５", "access"=>"徒歩"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[36mShop Create (1.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "phone_number", "business_hours", "number_of_seats", "access", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "aa"], ["address", "松戸市"], ["phone_number", "1111"], ["business_hours", "17時"], ["number_of_seats", "５"], ["access", "徒歩"], ["text", "aaa"], ["created_at", "2020-09-30 09:55:08.636336"], ["updated_at", "2020-09-30 09:55:08.636336"]]
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+Redirected to http://localhost:3000/admin/shops
+Completed 302 Found in 430ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/shops" for 10.0.2.2 at 2020-09-30 09:55:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#index as HTML
+  Rendering admin/shops/index.html.erb within layouts/application
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/admin/shops/index.html.erb:12
+  Rendered admin/shops/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 44ms (Views: 40.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "//admin/shops/new" for 10.0.2.2 at 2020-09-30 09:55:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#new as HTML
+  Rendering admin/shops/new.html.erb within layouts/application
+  Rendered admin/shops/_form.html.erb (10.4ms)
+  Rendered admin/shops/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 55ms (Views: 50.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/shops" for 10.0.2.2 at 2020-09-30 09:55:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4KRqVWx7ieD0PBcqnKidDXkK0TXoCENLUa7qZ2hKGFB2cjH8X1uqW4CpG9tK+UJw8mkmEcKYkhTpvYbR0iezgA==", "shop"=>{"name"=>"っq", "text"=>"っっクォ", "address"=>"松戸", "phone_number"=>"1111", "business_hours"=>"111", "number_of_seats"=>"1", "access"=>"111"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[36mShop Create (1.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "phone_number", "business_hours", "number_of_seats", "access", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "っq"], ["address", "松戸"], ["phone_number", "1111"], ["business_hours", "111"], ["number_of_seats", "1"], ["access", "111"], ["text", "っっクォ"], ["created_at", "2020-09-30 09:55:53.356677"], ["updated_at", "2020-09-30 09:55:53.356677"]]
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+Redirected to http://localhost:3000/admin/shops
+Completed 302 Found in 482ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/shops" for 10.0.2.2 at 2020-09-30 09:55:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#index as HTML
+  Rendering admin/shops/index.html.erb within layouts/application
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/admin/shops/index.html.erb:12
+  Rendered admin/shops/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mShop Load (0.8ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "//admin/shops/new" for 10.0.2.2 at 2020-09-30 09:58:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Admin::ShopsController#new as HTML
+  Rendering admin/shops/new.html.erb within layouts/application
+  Rendered admin/shops/_form.html.erb (571.4ms)
+  Rendered admin/shops/new.html.erb within layouts/application (575.7ms)
+Completed 200 OK in 662ms (Views: 622.4ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/admin/shops" for 10.0.2.2 at 2020-09-30 09:58:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EQ73Qfv31XHcrtSYwcxJNRROZbYvfJuyyfeIesP/UQeH2KzoyNf2yqg72GkXnZZIny2SkgXsSu1x5OTMeZL61w==", "shop"=>{"name"=>"sss", "text"=>"sss", "address"=>"松戸市", "phone_number"=>"111", "business_hours"=>"11", "number_of_seats"=>"4", "access"=>"徒歩"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "phone_number", "business_hours", "number_of_seats", "access", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "sss"], ["address", "松戸市"], ["phone_number", "111"], ["business_hours", "11"], ["number_of_seats", "4"], ["access", "徒歩"], ["text", "sss"], ["created_at", "2020-09-30 09:58:54.516495"], ["updated_at", "2020-09-30 09:58:54.516495"]]
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+Redirected to http://localhost:3000/admin/shops
+Completed 302 Found in 496ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/admin/shops" for 10.0.2.2 at 2020-09-30 09:58:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#index as HTML
+  Rendering admin/shops/index.html.erb within layouts/application
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/admin/shops/index.html.erb:12
+  Rendered admin/shops/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 43ms (Views: 35.5ms | ActiveRecord: 0.6ms)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20200918091002)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918091002_devise_create_users.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200918091002_devise_create_users.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200918091002_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918091002"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateAdmins (20200918091450)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918091450_devise_create_admins.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  ↳ db/migrate/20200918091450_devise_create_admins.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  ↳ db/migrate/20200918091450_devise_create_admins.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918091450"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateShops (20200918094657)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "raamen_id" integer, "review_id" integer, "name" varchar NOT NULL, "address" varchar NOT NULL, "phone_number" varchar NOT NULL, "business_hours" varchar, "number_of_seats" varchar, "shop_image_id" varchar, "access" varchar, "text" varchar, "parking" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918094657_create_shops.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918094657"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateReviews (20200918094733)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "shop_id" integer, "raamen_id" integer, "review" varchar NOT NULL, "review_image_id" varchar, "topping" varchar NOT NULL, "tennsuu" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918094733_create_reviews.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918094733"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateRaamen (20200918094756)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "raamen" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "review_id" integer, "name" varchar NOT NULL, "price" varchar NOT NULL, "raamen_image_id" varchar, "text" varchar NOT NULL, "is_active" boolean DEFAULT 1, "aji" varchar NOT NULL, "dashi" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918094756_create_raamen.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918094756"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddShopIdToRaamen (20200924070536)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "raamen" ADD "shop_id" integer[0m
+  ↳ db/migrate/20200924070536_add_shop_id_to_raamen.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200924070536"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddCoordinateToShops (20200926075609)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "shops" ADD "latitude" float[0m
+  ↳ db/migrate/20200926075609_add_coordinate_to_shops.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "shops" ADD "longitude" float[0m
+  ↳ db/migrate/20200926075609_add_coordinate_to_shops.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200926075609"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-30 10:08:44.850056"], ["updated_at", "2020-09-30 10:08:44.850056"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "//admin/shops/new" for 10.0.2.2 at 2020-09-30 10:10:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Admin::ShopsController#new as HTML
+  Rendering admin/shops/new.html.erb within layouts/application
+  Rendered admin/shops/_form.html.erb (403.1ms)
+  Rendered admin/shops/new.html.erb within layouts/application (406.8ms)
+Completed 200 OK in 477ms (Views: 456.0ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/admin/shops" for 10.0.2.2 at 2020-09-30 10:10:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8j1qVTywU1LV9xhJyAWQffa0La1R8Mo0Fsh8cCe3qq1k6zH8D5Bw6aFiFLgeVE8AfdfaiXtgG2uu2xDGndoBfQ==", "shop"=>{"name"=>"sssss", "text"=>"sss", "address"=>"松戸", "phone_number"=>"11111", "business_hours"=>"1", "number_of_seats"=>"1", "access"=>"徒歩"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[36mShop Create (2.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "phone_number", "business_hours", "number_of_seats", "access", "text", "created_at", "updated_at", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "sssss"], ["address", "松戸"], ["phone_number", "11111"], ["business_hours", "1"], ["number_of_seats", "1"], ["access", "徒歩"], ["text", "sss"], ["created_at", "2020-09-30 10:10:55.623270"], ["updated_at", "2020-09-30 10:10:55.623270"], ["latitude", 35.7876663], ["longitude", 139.9033248]]
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+Redirected to http://localhost:3000/admin/shops
+Completed 302 Found in 647ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/admin/shops" for 10.0.2.2 at 2020-09-30 10:10:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#index as HTML
+  Rendering admin/shops/index.html.erb within layouts/application
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/admin/shops/index.html.erb:12
+  Rendered admin/shops/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 32ms (Views: 28.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 10:11:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 523ms (Views: 512.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/shops/1" for 10.0.2.2 at 2020-09-30 10:11:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShop Load (0.9ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/shops_controller.rb:7
+  Rendering shops/show.html.erb within layouts/application
+  Rendered admin/shops/_detail.html.erb (4.9ms)
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shop_id" = ?[0m  [["shop_id", 1]]
+  ↳ app/views/reviews/_index.html.erb:1
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."tennsuu") FROM "reviews" WHERE "reviews"."shop_id" = ?[0m  [["shop_id", 1]]
+  ↳ app/views/reviews/_index.html.erb:30
+  Rendered reviews/_index.html.erb (27.8ms)
+  Rendered shops/show.html.erb within layouts/application (40.4ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `ceil' for nil:NilClass):
+    27: 		</tbody>
+    28: 	</table>
+    29: <% end %>
+    30: <% star = shop.reviews.average(:tennsuu).ceil.to_s %>
+    31: <% if star == nil %>
+    32: 	<%= image_tag "star0.png", :sizw => "70*20" %>
+    33: 	<h4>まだレビューがありません</h4>
+  
+app/views/reviews/_index.html.erb:30:in `_app_views_reviews__index_html_erb__725800035718863911_69975150913940'
+app/views/shops/show.html.erb:13:in `_app_views_shops_show_html_erb___715372220552602172_69975150815720'
+Started GET "/ranking" for 10.0.2.2 at 2020-09-30 10:13:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#ranking as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT AVG(tennsuu) AS average_tennsuu, "shop_id" AS shop_id FROM "shops" INNER JOIN "reviews" ON "reviews"."shop_id" = "shops"."id" GROUP BY "shop_id"[0m
+  ↳ app/controllers/shops_controller.rb:16
+  Rendering shops/ranking.html.erb within layouts/application
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE 1=0[0m
+  ↳ app/views/shops/ranking.html.erb:19
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops" ORDER BY id DESC[0m
+  ↳ app/views/shops/ranking.html.erb:43
+  Rendered shops/ranking.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 42ms (Views: 24.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/shops/1" for 10.0.2.2 at 2020-09-30 10:13:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/shops_controller.rb:21
+  Rendering admin/shops/show.html.erb within layouts/application
+  Rendered admin/shops/_detail.html.erb (43.3ms)
+  [1m[36mRaamen Load (0.5ms)[0m  [1m[34mSELECT "raamen".* FROM "raamen" WHERE "raamen"."shop_id" = ?[0m  [["shop_id", 1]]
+  ↳ app/views/admin/raamens/_index.html.erb:1
+  Rendered admin/raamens/_index.html.erb (2.3ms)
+  Rendered admin/shops/show.html.erb within layouts/application (67.8ms)
+Completed 200 OK in 98ms (Views: 85.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "//admin/shops/new" for 10.0.2.2 at 2020-09-30 11:56:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Admin::ShopsController#new as HTML
+  Rendering admin/shops/new.html.erb within layouts/application
+  Rendered admin/shops/_form.html.erb (474.3ms)
+  Rendered admin/shops/new.html.erb within layouts/application (479.4ms)
+Completed 200 OK in 549ms (Views: 522.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 11:56:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#show as HTML
+  Parameters: {"id"=>"top"}
+  [1m[36mShop Load (1.0ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/shops_controller.rb:7
+Completed 404 Not Found in 5ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Shop with 'id'=top):
+  
+app/controllers/shops_controller.rb:7:in `show'
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 11:56:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#show as HTML
+  Parameters: {"id"=>"top"}
+  [1m[36mShop Load (0.8ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/shops_controller.rb:7
+Completed 404 Not Found in 3ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Shop with 'id'=top):
+  
+app/controllers/shops_controller.rb:7:in `show'
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 11:57:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 295ms (Views: 282.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/shops/top" for 10.0.2.2 at 2020-09-30 11:58:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ShopsController#top as HTML
+  Rendering shops/top.html.erb within layouts/application
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/shops/top.html.erb:52
+  Rendered shops/top.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/shops" for 10.0.2.2 at 2020-09-30 11:59:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#index as HTML
+  Rendering admin/shops/index.html.erb within layouts/application
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/admin/shops/index.html.erb:12
+  Rendered admin/shops/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "//admin/shops/new" for 10.0.2.2 at 2020-09-30 11:59:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#new as HTML
+  Rendering admin/shops/new.html.erb within layouts/application
+  Rendered admin/shops/_form.html.erb (29.0ms)
+  Rendered admin/shops/new.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 64ms (Views: 60.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/shops" for 10.0.2.2 at 2020-09-30 12:00:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w7O8SmEjZgBJndGNDh2KbfUavdabCafR54tQ+igum6pVZefjUgNFuz0I3XzYTFUQfnlK8rGZdo5fmDxMkkMweg==", "shop"=>{"name"=>"って", "text"=>"sss", "address"=>"松戸市", "phone_number"=>"1111", "business_hours"=>"11", "number_of_seats"=>"1", "access"=>"111"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[36mShop Create (5.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "phone_number", "business_hours", "number_of_seats", "access", "text", "created_at", "updated_at", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "って"], ["address", "松戸市"], ["phone_number", "1111"], ["business_hours", "11"], ["number_of_seats", "1"], ["access", "111"], ["text", "sss"], ["created_at", "2020-09-30 12:00:12.951746"], ["updated_at", "2020-09-30 12:00:12.951746"], ["latitude", 35.7876663], ["longitude", 139.9033248]]
+  ↳ app/controllers/admin/shops_controller.rb:12
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admin/shops_controller.rb:12
+Redirected to http://localhost:3000/admin/shops
+Completed 302 Found in 854ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/admin/shops" for 10.0.2.2 at 2020-09-30 12:00:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::ShopsController#index as HTML
+  Rendering admin/shops/index.html.erb within layouts/application
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/admin/shops/index.html.erb:12
+  Rendered admin/shops/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 30ms (Views: 25.3ms | ActiveRecord: 0.6ms)
 
 
