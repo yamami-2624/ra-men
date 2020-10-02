@@ -27,11 +27,9 @@
               </tr>
 				    </tbody>
         </div>
-    </div>
-    <div class="row">
-          <div class="col-xs-9 col-xs-offset-3">
-            <div id='map'></div>
-          </div>
+        <div class="col-xs-9">
+          <div id='map'></div>
+        </div>
     </div>
 </div>
 
@@ -39,7 +37,6 @@
 let mapInstance
 let map;
 // let marker = []; // マーカーを複数表示させたいので、配列化
-var infoWindow;
 let markerData = shops; // コントローラーで定義したインスタンス変数を変数に代入
 
 function initMap(){
@@ -49,7 +46,63 @@ function initMap(){
           center: {lat: 35.68123620000001, lng:139.7671248},
           zoom: 12,
       });
-     <% @shops.each do |s| %>
+    <% @shops.each do |s| %>
+          (function(){
+          var contentString = "住所：<%= s.address %>"
+
+          var marker = new google.maps.Marker({
+              position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
+              map: map,
+            });
+
+          var　infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+              content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
+            });
+
+              marker.addListener('click', function() { // マーカーをクリックしたとき
+              infoWindow.open(map, marker); // 吹き出しの表示
+            });
+          })();
+    <% end %>
+
+
+    document.getElementById('getcurrentlocation').onclick = function() {
+      geoLocationInit();
+    }
+
+    function geoLocationInit() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(success, fail);
+        } else {
+          createMap(pyrmont);
+      }
+    }
+
+   // success
+   function success(position) {
+     var currentLat = position.coords.latitude;
+     var currentLng = position.coords.longitude;
+
+     var pyrmont = new google.maps.LatLng(currentLat,currentLng);
+
+     createMap(pyrmont)
+
+     CurrentPositionMarker(pyrmont);
+    }
+
+    // fail
+    function fail(pyrmont) {
+      createMap(pyrmont);
+    }
+
+
+    function createMap(pyrmont) {
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: pyrmont,
+        zoom: 16
+      });
+      <% @shops.each do |s| %>
           (function(){
           var contentString = "住所：<%= s.address %>"
 
@@ -67,51 +120,11 @@ function initMap(){
               infoWindow.open(map, marker); // 吹き出しの表示
             });
           })();
-    <% end %>
-  }
-
-
-document.getElementById('getcurrentlocation').onclick = function() {
-      geoLocationInit();
-    }
-
-    function geoLocationInit() {
-      if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(success, fail);
-
-        } else {
-          createMap(pyrmont);
-      }
-    }
-
-   // success
-   function success(position) {
-     var currentLat = position.coords.latitude;
-     var currentLng = position.coords.longitude;
-
-     var pyrmont = new google.maps.LatLng(currentLat,currentLng);
-
-     createMap(pyrmont)
-
-     CurrentPositionMarker(pyrmont);
-   }
-
-    // fail
-    function fail(pyrmont) {
-      createMap(pyrmont);
-    }
-
-    function createMap(pyrmont) {
-
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: pyrmont,
-        zoom: 15
-      });
-      nearbysearch(pyrmont)
+      <% end %>
     }
 
 
-    // 現在地のアイコンを表示
+    // 現在地のアイコンを表示 出ない
     function CurrentPositionMarker(pyrmont) {
         var image = 'no_image.jpg';
         var marker = new google.maps.Marker({
@@ -120,6 +133,7 @@ document.getElementById('getcurrentlocation').onclick = function() {
                 icon: image
             });
         marker.setMap(map);
+    }
     }
 
 
@@ -141,7 +155,26 @@ document.getElementById('getcurrentlocation').onclick = function() {
           alert('Geocode was not successful for the following reason: ' + status);
         }
       });
-    }
+        <% @shops.each do |s| %>
+            (function(){
+            var contentString = "住所：<%= s.address %>"
+
+            var marker = new google.maps.Marker({
+                position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
+                map: map,
+                title: contentString
+              });
+
+                infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+                content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
+              });
+
+                marker.addListener('click', function() { // マーカーをクリックしたとき
+                infoWindow.open(map, marker); // 吹き出しの表示
+              });
+            })();
+        <% end %>
+       }
 
 
 </script>

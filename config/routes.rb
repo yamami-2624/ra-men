@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     passwords:     'admin/passwords',
     registrations: 'admin/registrations',
   }
+  
   namespace :admin do
     resources :admins
     resources :genres
@@ -20,14 +21,19 @@ Rails.application.routes.draw do
   get "shops/top" => "shops#top"
   get "/ranking" , to: "shops#ranking" , as: "ranking"
   get '/map_request', to: 'shops#map', as: 'map_request'
+  get '/my_page', to: 'users#my_page', as: 'my_page'
   get '/search', to: 'shops#search', as: 'search'
+  delete "/favorites", to: "shops/favorites#destroy"
+  post "/favorites", to: "shops/favorites#create"
   devise_for :users, controllers: {
-    sessions:      'customers/sessions',
-    passwords:     'customers/passwords',
-    registrations: 'customers/registrations',
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations',
   }
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-    resources :genres
     resources :homes
     resources :shops do
       member do

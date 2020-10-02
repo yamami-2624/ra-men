@@ -31,6 +31,13 @@ class Admin::ShopsController < ApplicationController
     @shop.update(shop_params) ? (redirect_to admin_shop_path(@shop)) : (render :edit)
   end
 
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy!
+    flash[:notice] = '店舗を削除しました'
+    redirect_to admin_shops_path
+  end
+
   private
   def shop_params
     params.require(:shop).permit(:name, :address, :phone_number, :business_hours, :number_of_seats, :shop_image_id, :access, :text, :parking, :latitude, :longitude)

@@ -19,7 +19,7 @@
 					<tbody>
 						<% @raamens.each do |raamen| %>
 							<tr>
-								<td><%= link_to raamen.name, new_shop_raamen_review_path(raamen,@shop), class: "underline" %></td>
+								<td><%= link_to raamen.name, new_shop_raamen_review_path(@shop,raamen), class: "underline" %></td>
 								<td><%= raamen.text %></td>
 								<td>
 								<td><%= raamen.price %>円</td>

@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
       review = Review.new(review_params)
       review.shop_id = shop.id
       review.raamen_id = raamen.id
+      review.user_id = current_user.id
       if review.save!
         redirect_to shop_path(shop)
       else
@@ -25,7 +26,8 @@ class ReviewsController < ApplicationController
     end
 
  	  def show
-   		@raamen = Raamen.find(params[:raamen_id])
+      @shop = Shop.find(params[:shop_id])
+      @raamen = Raamen.find(params[:raamen_id])
    		@review = Review.find(params[:id])
   	end
 
@@ -37,8 +39,9 @@ class ReviewsController < ApplicationController
 
   	def update
       shop = Shop.find(params[:shop_id])
-      @raamen = Raamen.find(params[:id])
-    	@raamen.update(raamen_params) ? (redirect_to admin_shop_path(shop)) : (render :edit)
+      raamen = Raamen.find(params[:raamen_id])
+      review = Review.find(params[:id])
+    	review.update(review_params) ? (redirect_to shop_path(shop)) : (render :edit)
   	end
 
     def ranking

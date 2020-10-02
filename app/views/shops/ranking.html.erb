@@ -4,7 +4,7 @@
             <table class="table">
         	<h1>ランキングページ</h1>
             <h3>点数ランキング</h3>
-            	<% if @shop_ranking == nil %>
+            	<% if @shop_rankings == nil %>
             		<h1>登録がありません</h1>
             	<% else %>
                     <thead>
@@ -16,7 +16,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% @shop_ranking.each do |shop| %>
+                        <% @shop_rankings.each do |shop| %>
                             <tr>
                                 <td><%= link_to shop.name, admin_shop_path(shop), class: "underline" %></td>
                                 <td><%= shop.address %></td>
