@@ -9,11 +9,20 @@
     <%= javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<body>
-<div id="map"></div><!-- 地図を表示する div 要素（id="map"）-->
-</body>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class='body'>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
   </body>
+  <footer>
+  </footer>
 </html>
+
+<style>
+  body { padding-top: 70px;
+         padding-bottom: 70px;
+   }
+</style>

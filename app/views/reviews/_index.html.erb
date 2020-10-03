@@ -1,7 +1,7 @@
-<% if shop.reviews == nil %>
+<% if reviews == nil %>
 	<h2>レビューの登録はまだありません</h2>
 <% else %>
-	<h2><%= shop.name %>のレビュー一覧</h2>
+	<h2><%= name %>のレビュー一覧</h2>
 	<table class="table">
 		<thead>
 			<tr>
@@ -12,7 +12,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% shop.reviews.each do |review| %>
+			<% reviews.each do |review| %>
 				<tr>
 					<td>
 						<div class="image_field">
@@ -21,18 +21,9 @@
 					<td>
 					<td><%= review.review %></td>
 					<td><%= review.tennsuu %></td>
-					<td><%= link_to "詳細", shop_raamen_review_path(shop.raamens,shop,review), class: "underline" %></td>
+					<td><%= link_to "詳細", shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "underline" %></td>
 				</tr>
 			<% end %>
 		</tbody>
 	</table>
-<% end %>
-<% star = shop.reviews.average(:tennsuu).ceil.to_s %>
-<% if star == nil %>
-	<%= image_tag "star0.png", :sizw => "70*20" %>
-	<h4>まだレビューがありません</h4>
-<% else %>
-	<% file = "star"+star+".png" %>
-	<%= image_tag file, :sizw => "70*20" %>
-	<%= shop.reviews.average(:tennsuu).round(2) %>
 <% end %>

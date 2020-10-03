@@ -1,16 +1,3 @@
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-}
 
-function showPosition(position) {
-$.ajax({
-  type: 'GET',
-  url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&sensor=true&key=AIzaSyCpV0rqVCjeiHMyw6HDLo6Plf778CE3Ai4&language=en`,
-  }).then(function(response){
-    console.log(response);
-  })
-}
+
+

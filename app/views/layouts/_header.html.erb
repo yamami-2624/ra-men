@@ -6,22 +6,18 @@
     <nav>
       <ul class="nav navbar-nav navbar-right navbar-white bg-white">
         <% if user_signed_in? %>
-            <li><%= link_to ' トップ',customers_my_page_path %></li>
-            <li><%= link_to ' 検索',products_path %></li>
-            <li><%= link_to ' ランキング', cart_items_path %></li>
-            <li><%= link_to ' ログイン', destroy_customer_session_path, method: :delete %></li>
+            <li><%= link_to ' トップ',shops_top_path %></li>
+            <li><%= link_to ' マイページ',my_page_path %></li>
+            <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete %></li>
         <% elsif admin_signed_in? %>
-            <li><%= link_to ' 商品一覧',admin_products_path %></li>
-            <li><%= link_to ' 会員一覧',admin_customers_path %></li>
-            <li><%= link_to ' 注文履歴一覧',admin_orders_path %></li>
-            <li><%= link_to ' ジャンル一覧',admin_genres_path %></li>
+            <li><%= link_to ' 店舗登録',admin_shops_new_path %></li>
+            <li><%= link_to ' 店舗一覧',admin_shops_path %></li>
+            <li><%= link_to ' レビュー 一覧',admin_shop_raamen_reviews_path %></li>
             <li><%= link_to ' ログアウト',destroy_admin_session_path, method: :delete %></li></br>
-            <li><%= text_field_tag (:word) %></li>
-       　　<li><%= submit_tag "検索" %></li>
         <% else %>
-            <li><%= link_to ' About',customers_about_path %></li>
-            <li><%= link_to ' 新規登録', new_customer_registration_path %></li>
-            <li><%= link_to ' ログイン', new_customer_session_path %></li>
+            <li><%= link_to ' トップ', shops_top_path %></li>
+            <li><%= link_to ' ログイン', new_user_session_path %></li>
+            <li><%= link_to ' 新規登録', new_user_registration_path %></li>
         <% end %>
       </ul>
     </nav>
