@@ -1,43 +1,44 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-3">
-        	<h1>ラーメンを食べに行こう！！</h1>
-        		<tbody>
-        			<tr>
-        				<td>
-                <h4>店名から選ぶ</h4>
-                <%= form_with(scope: :search, url: search_path, method: :get, local: true) do |f| %>
-                  <%= f.label(:name, '名前') %>
-                  <%= f.text_field :name %>
-                  <%= f.submit('検索') %>
-                <% end %>
-						    </td>
-              <tr>
-                <h4>場所から選ぶ</h4>
-                <input id="address" type="textbox" value="東京駅">
-                <input type="button" value="検索" onclick="codeAddress()">
-					    </tr>
-              <tr>
-                <h4>現在地から選ぶ</h4>
-                <button id="getcurrentlocation">移動する</button>
-              </tr>
-              <tr>
-                <h4>ランキングから選ぶ</h4>
-                <%= link_to "移動", ranking_path, class: "btn btn-success" %>
-              </tr>
-				    </tbody>
-        </div>
-        <div class="col-xs-9">
-          <div id='map'></div>
-        </div>
-    </div>
+<div class="main-container">
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-3">
+          	<h1>ラーメンを食べに行こう！！</h1>
+          		<tbody>
+          			<tr>
+          				<td>
+                  <h4>店名から選ぶ</h4>
+                  <%= form_tag(search_path,:method => 'get') do %>
+                    <%= text_field_tag :search %>
+                    <%= submit_tag 'Search', :name => nil %>
+                  <% end %>
+  						    </td>
+                <tr>
+                  <h4>場所から選ぶ</h4>
+                  <input id="address" type="textbox" value="東京駅">
+                  <input type="button" value="検索" onclick="codeAddress()">
+  					    </tr>
+                <tr>
+                  <h4>現在地から選ぶ</h4>
+                  <button id="getcurrentlocation">移動する</button>
+                </tr>
+                <tr>
+                  <h4>ランキングから選ぶ</h4>
+                  <%= link_to "移動", ranking_path, class: "btn btn-success" %>
+                </tr>
+  				    </tbody>
+          </div>
+          <div class="col-xs-9">
+            <div id='map'></div>
+          </div>
+      </div>
+  </div>
 </div>
+
 
 <script>
 let mapInstance
 let map;
 // let marker = []; // マーカーを複数表示させたいので、配列化
-let markerData = shops; // コントローラーで定義したインスタンス変数を変数に代入
 
 function initMap(){
       geocoder = new google.maps.Geocoder()

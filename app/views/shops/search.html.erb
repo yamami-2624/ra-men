@@ -9,7 +9,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% @shops.each do |shop| %>
+					<% @shop_search.each do |shop| %>
 						<tr>
 							<td><%= link_to shop.name, shop_path(shop), class: "underline" %></td>
 							<td><%= shop.address %>円</td>

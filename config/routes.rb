@@ -20,11 +20,10 @@ Rails.application.routes.draw do
 
   get "shops/top" => "shops#top"
   get "/ranking" , to: "shops#ranking" , as: "ranking"
+  get "/tenranking" , to: "shops#tenranking" , as: "tenranking"
   get '/map_request', to: 'shops#map', as: 'map_request'
   get '/my_page', to: 'users#my_page', as: 'my_page'
   get '/search', to: 'shops#search', as: 'search'
-  delete "/favorites", to: "shops/favorites#destroy"
-  post "/favorites", to: "shops/favorites#create"
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
@@ -36,6 +35,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     resources :homes
     resources :shops do
+      resource :favorites, only: [:create, :destroy]
       member do
         get "search"
       end

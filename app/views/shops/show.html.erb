@@ -13,20 +13,24 @@
                     <%= @shop.reviews.average(:tennsuu).round(2) %>
                 <% end %>
 
-                <% if @shop.favorited_by?(current_user) %>
-                    <li>
-                        <%= link_to favorites_path, method: :delete do %>
-                            <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-                            <%= @shop.favorites.count %> いいね
-                        <% end %>
-                    </li>
+                <% if user_signed_in? %>
+                    <% if @shop.favorited_by?(current_user) %>
+                        <li>
+                            <%= button_to shop_favorites_path(@shop), method: :delete do %>
+                                <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                                <%= @shop.favorites.count %> いいね
+                            <% end %>
+                        </li>
+                    <% else %>
+                        <li>
+                            <%= button_to shop_favorites_path(@shop), method: :post do %>
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                <%= @shop.favorites.count %> いいね
+                            <% end %>
+                        </li>
+                    <% end %>
                 <% else %>
-                    <li>
-                        <%= link_to favorites_path, method: :post do %>
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            <%= @shop.favorites.count %> いいね
-                        <% end %>
-                    </li>
+                    <th></th>
                 <% end %>
 			</div>
 		</section>

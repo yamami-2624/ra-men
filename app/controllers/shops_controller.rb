@@ -13,16 +13,24 @@ class ShopsController < ApplicationController
   	end
 
   	def ranking
-      shop = Shop.joins(:reviews)
-      average = shop.group(:id).average(:tennsuu)
-      @shop_rankings = shop.group(:id).order('average desc')
+      @shop_favorites = Shop.joins(:favorites).group(:id).order('count(shop_id) desc')
+      @shop_tennsuus = Shop.joins(:reviews).group(:id).order('avg(tennsuu) desc')
+      # tennsuu = Shop.joins(:reviews).group(:shop_id).average(:tennsuu)
+      # @shop_tennsuus = Shop.order("tennsuu desc")
+      # average = shop.group(:id).average(:tennsuu)
+      # @shop_rankings = shop.group(:id).order('average desc')
       # .paginate(page: params[:page], per_page: 10)
 
       @shop_new = Shop.all.order("id DESC")
     end
 
+    def tenranking
+      @shop_tennsuus = Shop.joins(:reviews).group(:id).order('avg(tennsuu) desc')
+      @shop_new = Shop.all.order("id DESC")
+    end
+
   	def search
-      @shops = Shop.search(params[:search])
+      @shop_search = Shop.search(params[:search])
  	  end
 
    	private

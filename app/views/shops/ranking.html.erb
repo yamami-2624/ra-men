@@ -3,8 +3,15 @@
         <div class="col-xs-10 col-xs-offset-1">
             <table class="table">
         	<h1>ランキングページ</h1>
-            <h3>点数ランキング</h3>
-            	<% if @shop_rankings == nil %>
+            <div class="quiz_tab">
+              <%= link_to ranking_path, class: "left btn green" do %>
+                お気に入りランキング
+              <% end %>
+              <%= link_to tenranking_path, class: "right btn" do %>
+                点数ランキング
+              <% end %>
+            </div>
+            	<% if @shop_favorites == nil %>
             		<h1>登録がありません</h1>
             	<% else %>
                     <thead>
@@ -16,14 +23,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% @shop_rankings.each do |shop| %>
+                        <% @shop_favorites.each do |shop| %>
                             <tr>
-                                <td><%= link_to shop.name, admin_shop_path(shop), class: "underline" %></td>
+                                <td><%= link_to shop.name, shop_path(shop), class: "underline" %></td>
                                 <td><%= shop.address %></td>
-                                <% star = shop.reviews.average(:tennsuu).ceil.to_s %>
-                                <% file = "star"+star+".png" %>
-                                <td><%= image_tag file, :sizw => "20*5" %></td>
-                                <td><%= shop.reviews.average(:tennsuu).round(2) %></td>
+                                <% if shop.reviews.average(:tennsuu) == nil %>
+                                    <td></td>
+                                <% else %>
+                                    <% star = shop.reviews.average(:tennsuu).ceil.to_s %>
+                                    <% file = "star"+star+".png" %>
+                                    <td><%= image_tag file, :sizw => "20*5" %></td>
+                                    <td><%= shop.reviews.average(:tennsuu).round(2) %></td>
+                                <% end %>
                             </tr>
                         <% end %>
                     </tbody>
@@ -42,7 +53,7 @@
                     <tbody>
                         <% @shop_new.each do |shop| %>
                             <tr>
-                                <td><%= link_to shop.name, admin_shop_path(shop), class: "underline" %></td>
+                                <td><%= link_to shop.name, shop_path(shop), class: "underline" %></td>
                                 <td><%= shop.address %></td>
                             </tr>
                         <% end %>
