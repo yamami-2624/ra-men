@@ -1,33 +1,51 @@
 <div class="main-container">
   <div class="container">
       <div class="row">
-          <div class="col-xs-3">
-          	<h1>ラーメンを食べに行こう！！</h1>
+        <div class="col-xs-7 col-xs-offset-4">
+          <h1>ラーメンを食べに行こう！！</h1>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+          <div class="col-xs-3 col-xs-offset-1">
+            <div id="search">
+              <h2>検索する</h2>
           		<tbody>
           			<tr>
           				<td>
                   <h4>店名から選ぶ</h4>
                   <%= form_tag(search_path,:method => 'get') do %>
                     <%= text_field_tag :search %>
-                    <%= submit_tag 'Search', :name => nil %>
+                    <%= submit_tag '検索', :name => nil %>
                   <% end %>
   						    </td>
                 <tr>
+                <br>
                   <h4>場所から選ぶ</h4>
-                  <input id="address" type="textbox" value="東京駅">
+                  <input id="address" type="textbox">
                   <input type="button" value="検索" onclick="codeAddress()">
   					    </tr>
                 <tr>
+                <br>
+                <br>
                   <h4>現在地から選ぶ</h4>
-                  <button id="getcurrentlocation">移動する</button>
+                  <button id="getcurrentlocation">
+                    <%= image_tag "move.png", class: "move" %> 移動する
+                  </button>
                 </tr>
+                <br>
+                <br>
                 <tr>
                   <h4>ランキングから選ぶ</h4>
-                  <%= link_to "移動", ranking_path, class: "btn btn-success" %>
+                  <%= link_to  weekly_ranking_path, class: "rank_btn" do %>
+                   <%= image_tag "king.png", class: "king" %> 移動する
+                  <% end %>
                 </tr>
   				    </tbody>
+            </div>
           </div>
-          <div class="col-xs-9">
+          <div class="col-xs-7">
             <div id='map'></div>
           </div>
       </div>
@@ -127,7 +145,7 @@ function initMap(){
 
     // 現在地のアイコンを表示 出ない
     function CurrentPositionMarker(pyrmont) {
-        var image = 'no_image.jpg';
+        var image = 'move.png';
         var marker = new google.maps.Marker({
                 position: pyrmont,
                 map: map,
@@ -183,7 +201,11 @@ function initMap(){
 
 <style>
 	#map {
-		width: 700px;
-    height: 600px;
+		width: 800px;
+    height: 700px;
 	}
+
+  #search{
+
+  }
 </style>

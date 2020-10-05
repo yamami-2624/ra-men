@@ -5,6 +5,7 @@ class ShopsController < ApplicationController
 
    	def show
  		 @shop = Shop.find(params[:id])
+     @reviews = @shop.reviews.page(params[:page]).per(5)
   	end
 
   	def top
@@ -12,21 +13,40 @@ class ShopsController < ApplicationController
       @shops = Shop.all
   	end
 
-  	def ranking
-      @shop_favorites = Shop.joins(:favorites).group(:id).order('count(shop_id) desc')
-      @shop_tennsuus = Shop.joins(:reviews).group(:id).order('avg(tennsuu) desc')
-      # tennsuu = Shop.joins(:reviews).group(:shop_id).average(:tennsuu)
-      # @shop_tennsuus = Shop.order("tennsuu desc")
-      # average = shop.group(:id).average(:tennsuu)
-      # @shop_rankings = shop.group(:id).order('average desc')
-      # .paginate(page: params[:page], per_page: 10)
-
-      @shop_new = Shop.all.order("id DESC")
+  	def weekly_ranking
+      @shop_favorites = Shop.joins(:favorites).where(favorites: {created_at: Time.now.all_week})
+      .group(:id).order('count(shop_id) desc').page(params[:page]).per(5)
+      @shop_new = Shop.all.order("id DESC").page(params[:page]).per(5)
     end
 
-    def tenranking
-      @shop_tennsuus = Shop.joins(:reviews).group(:id).order('avg(tennsuu) desc')
-      @shop_new = Shop.all.order("id DESC")
+    def monthly_ranking
+      @shop_favorites = Shop.joins(:favorites).where(favorites: {created_at: Time.now.all_month})
+      .group(:id).order('count(shop_id) desc').page(params[:page]).per(5)
+      @shop_new = Shop.all.order("id DESC").page(params[:page]).per(5)
+    end
+
+    def year_ranking
+      @shop_favorites = Shop.joins(:favorites).where(favorites: {created_at: Time.now.all_year})
+      .group(:id).order('count(shop_id) desc').page(params[:page]).per(5)
+      @shop_new = Shop.all.order("id DESC").page(params[:page]).per(5)
+    end
+
+    def weekly_tenranking
+      @shop_tennsuus = Shop.joins(:reviews).where(reviews: {created_at: Time.now.all_week})
+      .group(:id).order('avg(tennsuu) desc').page(params[:page]).per(5)
+      @shop_new = Shop.all.order("id DESC").page(params[:page]).per(5)
+    end
+
+    def monthly_tenranking
+      @shop_tennsuus = Shop.joins(:reviews).where(reviews: {created_at: Time.now.all_month})
+      .group(:id).order('avg(tennsuu) desc').page(params[:page]).per(5)
+      @shop_new = Shop.all.order("id DESC").page(params[:page]).per(5)
+    end
+
+    def year_tenranking
+      @shop_tennsuus = Shop.joins(:reviews).where(reviews: {created_at: Time.now.all_year})
+      .group(:id).order('avg(tennsuu) desc').page(params[:page]).per(5)
+      @shop_new = Shop.all.order("id DESC").page(params[:page]).per(5)
     end
 
   	def search

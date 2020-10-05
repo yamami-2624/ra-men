@@ -1,22 +1,21 @@
 <% if user_signed_in? %>
 	<div class="container">
 	    <div class="row">
-	        <div class="col-xs-8 col-xs-offset-2">
+	        <div class="col-xs-8 col-xs-offset-3">
 	        	<h1>マイページ</h1>
 	        	<table class="table">
 		        	<thead>
 					<tr>
 						<th>登録名</th>
 						<th>メールアドレス</th>
+						<th></th>
 					</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td><%= current_user.name %></td>
-							<td>
-								<%= current_user.email %>
-								<%= link_to "パスワードを変更する", edit_user_password_path(current_user) %>
-							</td>
+							<td><%= current_user.email %></td>
+							<td><%= link_to "パスワードを変更する", edit_user_password_path %></td>
 						</tr>
 					</tbody>
 				</table>
@@ -25,7 +24,7 @@
 		</div>
 	    <div class="row">
 	        <div class="col-xs-6 col-xs-offset-3">
-	        	<%= render 'reviews/index', reviews: current_user.reviews, name: current_user.name %>
+	        	<%= render 'reviews/index', reviews: @reviews, name: current_user.name %>
 	        </div>
 	    </div>
         <% else %>

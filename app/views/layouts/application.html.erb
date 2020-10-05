@@ -11,18 +11,15 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class='body'>
       <main>
         <%= yield %>
       </main>
     </div>
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
-  <footer>
-  </footer>
 </html>
 
 <style>
-  body { padding-top: 70px;
-         padding-bottom: 70px;
-   }
 </style>

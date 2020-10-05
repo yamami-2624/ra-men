@@ -1,4 +1,6 @@
 class Admin::RaamensController < ApplicationController
+  before_action :authenticate_admin!
+  
 	  def new
       @shop = Shop.find(params[:shop_id])
       @raamen = Raamen.new

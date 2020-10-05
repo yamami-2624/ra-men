@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <h1>ランキングページ</h1>
+        </div>
+        <div class="col-xs-3 col-xs-offset-4">
+            <div class="quiz_tab">
+            <br>
+              <%= link_to weekly_ranking_path, class: "rank_btn" do %>
+                <%= image_tag "king.png", class: "king" %> お気に入りランキング
+              <% end %>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div id="quiz_tab">
+            <br>
+              <%= link_to weekly_tenranking_path, class: "rank_btn-non" do %>
+                点数ランキング
+              <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-3">
+            <div class="quiz_tab">
+            <br>
+              <%= link_to weekly_ranking_path, class: "rank_btn-non" do %>
+                週間
+              <% end %>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div id="quiz_tab">
+            <br>
+              <%= link_to monthly_ranking_path, class: "rank_btn" do %>
+                <%= image_tag "king.png", class: "king" %>  月間
+              <% end %>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div id="quiz_tab">
+            <br>
+              <%= link_to year_ranking_path, class: "rank_btn-non" do %>
+                年間
+              <% end %>
+            </div>
+        </div>
+        <div class="col-xs-10 col-xs-offset-1">
+            <table class="table">
+                <%= render "shops/ranking", shop: @shop_favorites %>
+            </table>
+            <table class="table">
+            <h3>新着店舗</h3>
+                    <thead>
+                        <tr>
+                            <th>店名</th>
+                            <th>住所</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @shop_new.each do |shop| %>
+                            <tr>
+                                <td><%= link_to shop.name, shop_path(shop), class: "underline" %></td>
+                                <td><%= shop.address %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                    <%= paginate @shop_new %>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<style>
+</style>
+
+<script>
+document.getElementById("quiz_tab").onclick = function() {
+  this.classList.toggle("blue");
+};
+</script>

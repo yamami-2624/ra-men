@@ -1,4 +1,11 @@
 class ReviewsController < ApplicationController
+    def show
+      @shop = Shop.find(params[:shop_id])
+      @raamen = Raamen.find(params[:raamen_id])
+      @review = Review.find(params[:id])
+    end
+  
+  before_action :authenticate_user!
 	def new
 	    @shop = Shop.find(params[:shop_id])
 	    @raamen = Raamen.find(params[:raamen_id])
@@ -24,12 +31,6 @@ class ReviewsController < ApplicationController
         render :new
       end
     end
-
- 	  def show
-      @shop = Shop.find(params[:shop_id])
-      @raamen = Raamen.find(params[:raamen_id])
-   		@review = Review.find(params[:id])
-  	end
 
   	def edit
       @shop = Shop.find(params[:shop_id])

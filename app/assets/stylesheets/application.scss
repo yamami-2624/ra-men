@@ -15,3 +15,53 @@
  */
 @import "bootstrap-sprockets";  /*ここを追加*/
 @import "bootstrap";            /*ここを追加*/
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.rank_btn {
+    color: green
+}
+
+.rank_btn-non{
+    color: black
+}
+
+.star-image{
+    width: 120px;
+    height: 30px;
+}
+
+.king{
+    width: 30px;
+    height: 30px;
+}
+
+.rank_box{
+    background-color: white;
+  }
+
+body{
+	padding-top: 70px;
+	padding-bottom: 80px;
+	background-image: url(shuuchuusenn.jpg);
+	background-size: cover;
+  background-position: center;
+}
+
+container{
+	margin-top: 70px;
+}
+
+.move{
+  width: 30px;
+  height: 30px;
+}
+
+
+
+

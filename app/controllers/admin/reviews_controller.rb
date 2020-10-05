@@ -1,5 +1,6 @@
 class Admin::ReviewsController < ApplicationController
-
+  before_action :authenticate_admin!
+  
   	def index
       @shop = Shop.find(params[:shop_id])
       raamen = Raamen.find(params[:raamen_id])
@@ -16,14 +17,8 @@ class Admin::ReviewsController < ApplicationController
     def destroy
       @shop = Shop.find(params[:shop_id])
       @raamen = Raamen.find(params[:raamen_id])
-      review = review.find_by(id: params[:id], shop_id: @shop.id)
+      review = Review.find_by(shop_id:@shop.id, raamen_id:@raamen.id, id: params[:id])
       review.destroy
-      redirect_to request.referer
+      redirect_to admin_users_path
     end
-
-   #  def 
-
-  	# def update
-   #  	@review.update(review_params) ? (redirect_to admin_review_path(@review)) : (render :edit)
-  	# end
 end

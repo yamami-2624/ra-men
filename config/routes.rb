@@ -6,10 +6,12 @@ Rails.application.routes.draw do
     passwords:     'admin/passwords',
     registrations: 'admin/registrations',
   }
-  
+  devise_scope :admin do
+    get '/admin/sign_out' => 'devise/sessions#destroy'
+  end
   namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
     resources :admins
-    resources :genres
     resources :homes
     resources :shops do
       resources :raamens do
@@ -19,10 +21,17 @@ Rails.application.routes.draw do
   end
 
   get "shops/top" => "shops#top"
-  get "/ranking" , to: "shops#ranking" , as: "ranking"
-  get "/tenranking" , to: "shops#tenranking" , as: "tenranking"
+  get "/weekly_ranking" , to: "shops#weekly_ranking" , as: "weekly_ranking"
+  get "/monthly_ranking" , to: "shops#monthly_ranking" , as: "monthly_ranking"
+  get "/year_ranking" , to: "shops#year_ranking" , as: "year_ranking"
+
+  get "/weekly_tenranking" , to: "shops#weekly_tenranking" , as: "weekly_tenranking"
+  get "/monthly_tenranking" , to: "shops#monthly_tenranking" , as: "monthly_tenranking"
+  get "/year_tenranking" , to: "shops#year_tenranking" , as: "year_tenranking"
+
   get '/map_request', to: 'shops#map', as: 'map_request'
   get '/my_page', to: 'users#my_page', as: 'my_page'
+  get '/about', to: 'homes#about', as: 'about'
   get '/search', to: 'shops#search', as: 'search'
   devise_for :users, controllers: {
     sessions:      'users/sessions',

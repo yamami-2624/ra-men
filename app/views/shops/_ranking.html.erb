@@ -1,0 +1,38 @@
+<% if shop == nil %>
+    <h1>登録がありません</h1>
+<% else %>
+                    <thead>
+                        <tr>
+                            <th>店名</th>
+                            <th>住所</th>
+                            <th>点数</th>
+                            <th>お気に入り</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% shop.each do |shop| %>
+                            <tr>
+                                <td><%= link_to shop.name, shop_path(shop), class: "underline" %></td>
+                                <td><%= shop.address %></td>
+                                <% if shop.reviews.average(:tennsuu) == nil %>
+                                    <td></td>
+                                <% else %>
+                                    <div class ="star-image">
+                                        <% star = shop.reviews.average(:tennsuu).ceil.to_s %>
+                                        <% file = "star"+star+".png" %>
+                                        <td>
+                                            <%= image_tag file, class: "star-image" %>
+                                            <%= shop.reviews.average(:tennsuu).round(2) %>
+                                        </td>
+                                    </div>
+                                <% end %>
+                                <td><%= shop.favorites.count %> いいね</td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                    <tr><%= paginate shop %></tr>
+            	<% end %>
+
+
+
+
