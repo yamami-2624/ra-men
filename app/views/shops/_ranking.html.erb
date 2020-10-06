@@ -12,7 +12,7 @@
                     <tbody>
                         <% shop.each do |shop| %>
                             <tr>
-                                <td><%= link_to shop.name, shop_path(shop), class: "underline" %></td>
+                                <td><%= link_to shop.name, shop_path(shop), class: "detail-btn" %></td>
                                 <td><%= shop.address %></td>
                                 <% if shop.reviews.average(:tennsuu) == nil %>
                                     <td></td>

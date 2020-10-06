@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-			<h2 class="section-ttl">店詳細</h2>
-			<div class="flex">
+        <div class="col-xs-6 col-xs-offset-4">
+			<div class = "fonts">
+                店舗詳細情報
+            </div>
 				<%= render 'admin/shops/detail', shop: @shop %>
                 <% if @shop.reviews.average(:tennsuu) == nil %>
                     <th></th>
@@ -32,7 +33,6 @@
                 <% else %>
                     <th></th>
                 <% end %>
-			</div>
 		</section>
 	</div>
 </div>

@@ -24,11 +24,17 @@
 }
 
 .rank_btn {
-    color: green
+    color: black;
+    font-family: "midasi";
+    font-size: 22px;
+    font-height: 32px;
 }
 
 .rank_btn-non{
-    color: black
+    color: black;
+    font-family: "midasi";
+    font-size: 20px;
+    font-height: 30px;
 }
 
 .star-image{
@@ -47,7 +53,7 @@
 
 body{
 	padding-top: 70px;
-	padding-bottom: 80px;
+	padding-bottom: 200px;
 	background-image: url(shuuchuusenn.jpg);
 	background-size: cover;
   background-position: center;
@@ -60,8 +66,54 @@ container{
 .move{
   width: 30px;
   height: 30px;
+  color: white;
 }
 
 
+.fonts{
+  font-family: "Pigmo-00";
+  font-size: 50px;
+  font-height: 70px;
+}
+
+.review-fonts{
+  font-family: "Pigmo-00";
+  font-size: 40px;
+  font-height: 60px;
+}
+
+.table{
+  font-family: "ume-hgo4";
+  font-size: 15px;
+  font-height: 25px;
+}
+
+.nav{
+  font-family: "Pigmo-00";
+  font-size: 20px;
+  font-height: 25px;
+}
+
+.search{
+  font-family: "midasi";
+}
+
+.table{
+  color: black;
+}
+
+.detail-btn{
+  color: black;
+  font-family: "midasi";
+  font-size: 15px;
+  font-height: 20px;
+  text-shadow: 5px 5px 5px #808080;
+}
+
+.about{
+  font-family: "midasi";
+  font-size: 20px;
+  font-height: 25px;
+}
 
 
