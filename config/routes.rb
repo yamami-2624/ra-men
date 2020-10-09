@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get "/monthly_tenranking" , to: "shops#monthly_tenranking" , as: "monthly_tenranking"
   get "/year_tenranking" , to: "shops#year_tenranking" , as: "year_tenranking"
 
-  get '/map_request', to: 'shops#map', as: 'map_request'
+  get '/map_search', to: 'shops#map', as: 'map_search'
   get '/my_page', to: 'users#my_page', as: 'my_page'
   get '/about', to: 'homes#about', as: 'about'
   get '/search', to: 'shops#search', as: 'search'

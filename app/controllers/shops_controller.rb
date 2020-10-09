@@ -13,6 +13,10 @@ class ShopsController < ApplicationController
       @shops = Shop.all
   	end
 
+    def map_search
+      @shop = Shop.find(params[:id])
+    end
+
   	def weekly_ranking
       @shop_favorites = Shop.joins(:favorites).where(favorites: {created_at: Time.now.all_week})
       .group(:id).order('count(shop_id) desc').page(params[:page]).per(5)

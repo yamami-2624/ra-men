@@ -3,6 +3,7 @@
 <% else %>
                     <thead>
                         <tr>
+                            <th>順位</th>
                             <th>店名</th>
                             <th>住所</th>
                             <th>点数</th>
@@ -10,8 +11,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% shop.each do |shop| %>
+                        <% shop.each_with_index do |shop, i| %>
+                        <% i += 1 %>
                             <tr>
+                                <td>
+                                    <div class="juni">
+                                        <%= i %>位
+                                    </div>
+                                </td>
                                 <td><%= link_to shop.name, shop_path(shop), class: "detail-btn" %></td>
                                 <td><%= shop.address %></td>
                                 <% if shop.reviews.average(:tennsuu) == nil %>

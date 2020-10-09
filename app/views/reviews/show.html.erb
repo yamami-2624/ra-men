@@ -1,44 +1,55 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
-			<h2 class="section-ttl">レビュー詳細</h2>
+			<div class = "fonts">
+				レビュー詳細
+			</div>
 			<div class="flex">
 				<div>
 					<div class="image_field">
 						<%= attachment_image_tag @review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image" %>
 					</div>
 				</div>
-				<table class="table">
-					<thead>
-						<tr>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
+			</div>
+				<table class="review-table" style="table-layout:fixed;width:100%;">
 					<tbody>
 						<tr>
-							<td>商品名</td>
-							<td><%= @raamen.name %></td>
+							<td class="col-xs-2 midasi">商品名</td>
+							<td class="col-xs-3"><%= @raamen.name %></td>
 						</tr>
 						<tr>
-							<td>レビュー</td>
-							<td><%= @review.review %></td>
+							<td class="col-xs-2 midasi">レビュー</td>
+								<td class="col-xs-4" style="word-wrap:break-word;">
+									<%= @review.review%>
+								</td>
+							</td>
 						</tr>
 						<tr>
-							<td>トッピング</td>
-							<td><%= @review.topping %></td>
+							<td class="col-xs-2 midasi">トッピング</td>
+							<td class="col-xs-3"><%= @review.topping %></td>
 						</tr>
 						<tr>
-							<td>点数</td>
-							<td><%= @review.tennsuu %>円</td>
+							<td class="col-xs-2 midasi">点数</td>
+							<td class="col-xs-3"><%= @review.tennsuu %>円</td>
 						</tr>
 						<tr>
 					</tbody>
 				</table>
 				<div class="flex align-center pl5">
-					<%= link_to "編集する", edit_shop_raamen_review_path(@shop,@raamen,@review), class: "btn btn-success" %>
+					<%= link_to "編集する", edit_shop_raamen_review_path(@shop,@raamen,@review), class: "btn" %>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+.review-table{
+width: 400px;
+height: 400px;
+}
+
+td{
+	border-bottom: 1px solid black;
+}
+</style>

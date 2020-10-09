@@ -1,4 +1,4 @@
-<div class = "review-fonts">
+<div class = "about">
 	<%= name %>のレビュー一覧
 </div>
 	<table class="table">
@@ -18,11 +18,13 @@
 							<%= attachment_image_tag review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image" %>
 						</div>
 					<td>
-					<td><%= review.review %></td>
+					<td><%= truncate(review.review, :length => 15) %></td>
 					<td><%= review.tennsuu %></td>
-					<td><%= link_to "詳細", shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "underline" %></td>
+					<td><%= link_to "詳細", shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "detail-btn" %></td>
 				</tr>
 			<% end %>
-			<td><%= paginate reviews %></td>
+			<div class="col-xs-3 col-xs-offset-9">
+				<td><%= paginate reviews %></td>
+			</div>
 		</tbody>
 	</table>

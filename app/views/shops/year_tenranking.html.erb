@@ -5,7 +5,7 @@
                 ランキングページ
             </div>
         </div>
-        <div class="col-xs-3 col-xs-offset-4">
+        <div class="col-xs-3 col-xs-offset-3">
             <div class="quiz_tab">
             <br>
               <%= link_to weekly_ranking_path, class: "rank_btn-non" do %>
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-xs-3">
-            <div id="quiz_tab">
+            <div class="quiz_tab">
             <br>
               <%= link_to weekly_tenranking_path, class: "rank_btn" do %>
                 <%= image_tag "king.png", class: "king" %>  点数ランキング
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-3 col-xs-offset-3">
+        <div class="col-xs-3 col-xs-offset-1">
             <div class="quiz_tab">
             <br>
               <%= link_to weekly_tenranking_path, class: "rank_btn-non" do %>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-xs-3">
-            <div id="quiz_tab">
+            <div class="quiz_tab">
             <br>
               <%= link_to monthly_tenranking_path, class: "rank_btn-non" do %>
                 月間
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="col-xs-3">
-            <div id="quiz_tab">
+            <div class="quiz_tab">
             <br>
               <%= link_to year_tenranking_path, class: "rank_btn" do %>
                 <%= image_tag "king.png", class: "king" %> 年間
@@ -53,28 +53,30 @@
             </table>
             <br>
             <br>
-            <table class="table">
-            <div class = "fonts">
-                新着店舗
-            </div>
-                    <thead>
-                        <tr>
-                            <th>店名</th>
-                            <th>住所</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @shop_new.each do |shop| %>
+            <div class="rank-content2">
+                <table class="table">
+                <div class = "fonts">
+                    新着店舗
+                </div>
+                        <thead>
                             <tr>
-                                <td><%= link_to shop.name, shop_path(shop), class: "detail-btn" %></td>
-                                <td><%= shop.address %></td>
+                                <th>店名</th>
+                                <th>住所</th>
+                                <th></th>
+                                <th></th>
                             </tr>
-                        <% end %>
-                    </tbody>
-                    <%= paginate @shop_new %>
-            </table>
+                        </thead>
+                        <tbody>
+                            <% @shop_new.each do |shop| %>
+                                <tr>
+                                    <td><%= link_to shop.name, shop_path(shop), class: "detail-btn" %></td>
+                                    <td><%= shop.address %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                        <%= paginate @shop_new %>
+                </table>
+            </div>
         </div>
     </div>
 </div>

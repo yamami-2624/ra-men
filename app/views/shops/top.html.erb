@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="container">
       <div class="row">
-        <div class="col-xs-7 col-xs-offset-3">
+        <div class="col-xs-7 col-xs-offset-2">
           <div class = "fonts">
             ラーメンを食べに行こう！！
           </div>
@@ -10,17 +10,20 @@
       <br>
       <br>
       <div class="row">
-          <div class="col-xs-3 col-xs-offset-1">
+          <div class="col-xs-5">
             <div class="search">
               <div id="search">
+                <br>
                 <h2>検索する</h2>
             		<tbody>
             			<tr>
-                    <h4>店名から選ぶ</h4>
-                    <%= form_tag(search_path,:method => 'get') do %>
-                      <%= text_field_tag :search %>
-                      <%= submit_tag '検索', :name => nil %>
-                    <% end %>
+                    <div class="search-box">
+                      <h4>店名から選ぶ</h4>
+                      <%= form_tag(search_path,:method => 'get') do %>
+                        <%= text_field_tag :search %>
+                        <%= submit_tag '検索', :name => nil %>
+                      <% end %>
+                    </div>
                   </tr>
                   <tr>
                      <div class="search-box">
@@ -31,7 +34,7 @@
     					    </tr>
                   <tr>
                     <div class="search-box">
-                      <button id="getcurrentlocation" class=rank_btn >
+                      <button id="getcurrentlocation" type="button" class="clear-decoration rank_btn" >
                         <%= image_tag "move.png", class: "move" %>  現在地から選ぶ
                       </button>
                     </div>
@@ -45,38 +48,29 @@
     				    </tbody>
               </div>
             </div>
+            <%= image_tag "man.png", class: "man" %>
           </div>
           <div class="col-xs-7">
-            <div id='map'></div>
+            <div class="map-content">
+              <div id='map'></div>
+            </div>
           </div>
       </div>
   </div>
 </div>
 
 <style>
-  #map {
-    width: 700px;
-    height: 600px;
-    padding: 10px 10px 10px 10px;
-    color: black;
-  }
-
-  #getcurrentlocation{
-    outline: none
-  }
 </style>
 
 <script>
-let mapInstance
-let map;
 // let marker = []; // マーカーを複数表示させたいので、配列化
-
+//サイト開いた時に出すよう
 function initMap(){
       geocoder = new google.maps.Geocoder()
 
       map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 35.68123620000001, lng:139.7671248},
-          zoom: 12,
+          zoom: 18,
       });
     <% @shops.each do |s| %>
           (function(){
@@ -98,6 +92,7 @@ function initMap(){
     <% end %>
 
 
+//現在地取得
     document.getElementById('getcurrentlocation').onclick = function() {
       geoLocationInit();
     }
@@ -119,7 +114,15 @@ function initMap(){
 
      createMap(pyrmont)
 
-     CurrentPositionMarker(pyrmont);
+    var currentMarker = new google.maps.Marker({
+            position: pyrmont,
+            map: map,
+            icon: {
+            url: '/assets/move.png',
+            scaledSize: new google.maps.Size(30, 30)
+            },
+            })
+        currentMarker.setMap(map);
     }
 
     // fail
@@ -128,14 +131,26 @@ function initMap(){
     }
 
 
+    // map表示
     function createMap(pyrmont) {
-
       map = new google.maps.Map(document.getElementById('map'), {
         center: pyrmont,
-        zoom: 16
+        zoom: 18
       });
+
+      // var currentPos = new google.maps.LatLng(currentLat, currentLng);
+      var currentMarker = new google.maps.Marker({
+            position: pyrmont,
+            map: map,
+            icon: new google.maps.MarkerImage(
+            '/assets/move.png',
+            new google.maps.Size(80,50),
+            ),
+        });
+        currentMarker.setMap(map);
+
       <% @shops.each do |s| %>
-          (function(){
+          (onload = function(){
           var contentString = "住所：<%= s.address %>"
 
           var marker = new google.maps.Marker({
@@ -145,26 +160,35 @@ function initMap(){
             });
 
               infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-              content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
+              content:'<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" onclick="calcRoute()"/> '// 吹き出しに表示する内容
             });
 
               marker.addListener('click', function() { // マーカーをクリックしたとき
               infoWindow.open(map, marker); // 吹き出しの表示
             });
+
+              // ここから
+              document.getElementById('calcRoute').onclick = function() {
+                var request = {
+                  origin: 35.7100627+','+139.8107004, //現在地(必須)。経度緯度かテキスト入力。
+                  destination: <%= s.latitude %>+','+<%= s.longitude %>,  //目的地(必須)。経度緯度かテキスト入力。
+                  travelMode: google.maps.DirectionsTravelMode.WALKING, //交通手段(必須
+                  avoidHighways: false, //高速道路を使うかどうか。trueだと高速道路を可能な限りルートの計算から除外
+                  avoidTolls: false, //有料道路を使うかどうか。trueだと有料道路を可能な限りルートの計算から除外
+                };
+
+                directionsService = new google.maps.DirectionsService();
+                directionsDisplay = new google.maps.DirectionsRenderer();
+
+                directionsService.route(request, function(response,status){
+                  if (status == google.maps.DirectionsStatus.OK){
+                    directionsDisplay.setDirections(response);
+                  }
+                });
+              }
+          // ここまで
           })();
       <% end %>
-    }
-
-
-    // 現在地のアイコンを表示 出ない
-    function CurrentPositionMarker(pyrmont) {
-        var image = 'move.png';
-        var marker = new google.maps.Marker({
-                position: pyrmont,
-                map: map,
-                icon: image
-            });
-        marker.setMap(map);
     }
     }
 
@@ -179,10 +203,16 @@ function initMap(){
     　　　　　　　　　　　　// map.setCenterで地図が移動
           map.setCenter(results[0].geometry.location);
     　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-         // var marker = new google.maps.Marker({
-         //      map: map,
-         //      position: results[0].geometry.location
-         //  });
+      var Marker = new google.maps.Marker({
+            position: results[0].geometry.location,
+            map: map,
+             icon: {
+            url: '/assets/move.png',
+            scaledSize: new google.maps.Size(30, 30)
+            },
+            })
+        Marker.setMap(map);
+
         } else {
           alert('Geocode was not successful for the following reason: ' + status);
         }
@@ -206,22 +236,10 @@ function initMap(){
               });
             })();
         <% end %>
-       }
-
+      }
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpE1N1jyqshzxRVMQyqRgD2MXCILhif74&callback=initMap" async defer></script>
 
 <style>
-	#map {
-		width: 700px;
-    height: 600px;
-    padding: 10px 10px 10px 10px;
-    color: black;
-	}
-
-  .search-box{
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
 </style>
