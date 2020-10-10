@@ -5,7 +5,7 @@ class Admin::ReviewsController < ApplicationController
       @shop = Shop.find(params[:shop_id])
       raamen = Raamen.find(params[:raamen_id])
       reviews = raamen.review
-      @reviews = reviews.all
+      @reviews = reviews.all.page(params[:page]).per(5)
  	  end
 
  	  def show

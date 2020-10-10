@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-4">
-			<h2 class="section-ttl">店詳細</h2>
-			<div class="flex">
+        <div class="col-xs-5">
+			<div class="fonts">店詳細</div>
+			<div class= "shops-contents">
 				<%= render 'admin/shops/detail', shop: @shop %>
-				<div class="flex align-center pl5">
-					<%= link_to "編集する", edit_admin_shop_path(@shop), class: "btn btn-success" %>
-				</div>
+                <br>
+                <br>
+				<%= link_to "編集する", edit_admin_shop_path(@shop), class: "btn" %>
 			</div>
 		</div>
         <div class="col-xs-2">
@@ -17,7 +17,7 @@
             <br>
             <br>
         	<%= render 'admin/raamens/index', raamens: @raamens, shop: @shop %>
-        	<%= link_to "ラーメンを追加する", new_admin_shop_raamen_path(@shop,Raamen.new), class: "btn btn-success" %>
+        	<%= link_to "ラーメンを追加する", new_admin_shop_raamen_path(@shop,Raamen.new), class: "btn" %>
         </div>
     </div>
 </div>

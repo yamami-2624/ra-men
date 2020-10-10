@@ -1,7 +1,9 @@
 <% if raamens == nil %>
 	<h2>ラーメンの登録はまだありません</h2>
 <% else %>
-	<h2>商品一覧</h2>
+	<div class="fonts">
+		商品一覧
+	</div>
 	<table class="table">
 		<thead>
 			<tr>
@@ -15,7 +17,7 @@
 		<tbody>
 			<% raamens.each do |raamen| %>
 				<tr>
-					<td><%= link_to raamen.name, admin_shop_raamen_path(shop,raamen), class: "underline" %></td>
+					<td><%= link_to raamen.name, admin_shop_raamen_path(shop,raamen), class: "detail-btn" %></td>
 					<td><%= raamen.text %></td>
 					<td><%= raamen.price %>円</td>
 					<td><%= raamen.aji %></td>
@@ -29,5 +31,6 @@
 				</tr>
 			<% end %>
 		</tbody>
+		<%= paginate raamens %>
 	</table>
 <% end %>

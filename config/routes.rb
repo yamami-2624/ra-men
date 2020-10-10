@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   get "shops/top" => "shops#top"
+  root to: "shops#top"
   get "/weekly_ranking" , to: "shops#weekly_ranking" , as: "weekly_ranking"
   get "/monthly_ranking" , to: "shops#monthly_ranking" , as: "monthly_ranking"
   get "/year_ranking" , to: "shops#year_ranking" , as: "year_ranking"

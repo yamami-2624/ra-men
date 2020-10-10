@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
   	def index
 	    shop = Shop.find(params[:id])
 	    review = shop.raamen.review
-	    @reviews = review.all
+	    @reviews = review.all.order("id DESC")
  	  end
 
     def create

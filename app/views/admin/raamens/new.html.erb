@@ -1,7 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
-			<h2>ラーメンの登録</h2>
+			<div class="fonts">
+				ラーメンの登録
+			</div>
 				<%= render partial: "form", :locals => {raamen: @raamen, shop_id: @shop.id, submit: '登録'}, url: admin_shop_raamens_path(@shop.id) %>
 		</div>
 	</div>

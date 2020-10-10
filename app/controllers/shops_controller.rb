@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
 
    	def show
  		 @shop = Shop.find(params[:id])
-     @reviews = @shop.reviews.page(params[:page]).per(3)
+     @reviews = @shop.reviews.order("id DESC").page(params[:page]).per(3)
   	end
 
   	def top

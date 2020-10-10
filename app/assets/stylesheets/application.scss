@@ -56,9 +56,13 @@ body{
 	padding-bottom: 200px;
   width: 100%;
   height: 100%;
-  background-image: url(shuuchuusenn.jpg);
+  background-image: image-url(shuuchuusenn.jpg);
   background-size: cover;
   background-position: center;
+}
+
+.row{
+  padding-top: 50px;
 }
 
 container{
@@ -92,7 +96,7 @@ container{
 
 .search{
   font-family: "midasi";
-  background-image: url(hukidasi.png);
+  background-image: image-url(hukidasi.png);
   background-size: 350px 500px;
   width: 350px;
   height: 500px;
@@ -146,17 +150,15 @@ container{
 }
 
 .btn{
-  background-image: url(wakusen.png);
+  background-image: image-url(wakusen.png);
   background-size: 100% 100%;
   color: black;
   padding: 20px 20px;
 }
 
-
-
 ///shops/show
 .shops-contents{
-    background-image: url(wakusen2.png);
+    background-image: image-url(wakusen2.png);
     background-size: cover;
     background-position: center;
     height: 550px;
@@ -164,11 +166,10 @@ container{
 }
 
 .shops-contents2{
-    background-image: url(wakusen2.png);
-    background-size: cover;
+    background-image: image-url(2303.png);
+    background-size: 700% 100%;
     background-position: center;
-    height: 600px;
-    padding: 120px 100px;
+    padding: 60px 70px;
 }
 
 
@@ -181,14 +182,14 @@ container{
 }
 
 .rank-content2{
-    background-image: url(wakusen2.png);
+    background-image: image-url(wakusen2.png);
     background-size: 115% 120%;
     background-position: center;
     padding: 60px 110px;
 }
 
 .quiz_tab{
-  background-image: url(en.png);
+  background-image: image-url(en.png);
   background-size: 100% 100%;
   padding-bottom: 10px;
   text-align: center;
@@ -212,7 +213,7 @@ container{
   width: 750px;
   height: 650px;
   padding: 70px 70px;
-  background-image: url(2303.png);
+  background-image: image-url(2303.png);
   background-size: 100% 100%;
   background-position: center;
 }
@@ -226,7 +227,7 @@ container{
 }
 
 .my_page-content2{
-  background-image: url(2303.png);
+  background-image: image-url(2303.png);
   background-size: 100% 100%;
   background-position: center;
   padding: 60px 60px;
@@ -239,7 +240,7 @@ container{
 
 //////sign_in/sign_up
 .form-body{
-  background-image: url(wakusen2.png);
+  background-image: image-url(wakusen2.png);
   background-size: 115% 120%;
   background-position: center;
   padding: 60px 60px;
@@ -252,6 +253,30 @@ container{
   font-height: 30px;
 }
 
+//////ページネート
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: black;   /*文字の色を変える*/
+  width: 60px;
+  height: 60px;
+  padding: 18px 18px;
+  text-size: 20px;
+  background-image: image-url(en.png);
+  background-size: cover;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background-color: white;
+  color: black;
+  width: 60px;
+  height: 60px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+}
 
 /////レスポンシブ
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
