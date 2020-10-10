@@ -133,119 +133,117 @@ function initMap(){
     }
 
 
-    // map表示
-    function createMap(pyrmont) {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: pyrmont,
-        zoom: 18
+  // map表示
+  function createMap(pyrmont) {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: pyrmont,
+      zoom: 18
+    });
+
+    // var currentPos = new google.maps.LatLng(currentLat, currentLng);
+    var currentMarker = new google.maps.Marker({
+          position: pyrmont,
+          map: map,
+          icon: new google.maps.MarkerImage(
+          '/assets/move.png',
+          new google.maps.Size(80,50),
+          ),
       });
+      currentMarker.setMap(map);
 
-      // var currentPos = new google.maps.LatLng(currentLat, currentLng);
-      var currentMarker = new google.maps.Marker({
-            position: pyrmont,
+      <% @shops.each do |s| %>
+        (onload = function(){
+        var contentString = "住所：<%= s.address %>"
+
+        var marker = new google.maps.Marker({
+            position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
             map: map,
-            icon: new google.maps.MarkerImage(
-            '/assets/move.png',
-            new google.maps.Size(80,50),
-            ),
-        });
-        currentMarker.setMap(map);
+            title: contentString
+          });
 
-        <% @shops.each do |s| %>
-        // function　calcRoute() {
-          (onload = function(){
-          var contentString = "住所：<%= s.address %>"
+            infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+            content:'<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" class= "go" onclick="calcRoute(<% s.latitude %>, <% s.longitude %>)"/> '// 吹き出しに表示する内容
+          });
 
-          var marker = new google.maps.Marker({
-              position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
-              map: map,
-              title: contentString
-            });
-
-              infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-              content:'<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" class= "go" onclick="calcRoute(<%= s.latitude %>, <%= s.longitude %>)"/> '// 吹き出しに表示する内容
-            });
-
-              marker.addListener('click', function() { // マーカーをクリックしたとき
-              infoWindow.open(map, marker); // 吹き出しの表示
-            });
-              // ここから
-          // ここまで
-          })();
-
-      <% end %>
+            marker.addListener('click', function() { // マーカーをクリックしたとき
+            infoWindow.open(map, marker); // 吹き出しの表示
+          });
+            // ここから
+        // ここまで
+        })();
+    <% end %>
     }
+    }
+
+
+
+function codeAddress(){
+  // 入力を取得
+  let inputAddress = document.getElementById('address').value;
+
+  // geocodingしたあとmapを移動
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+　　　　　　　　　　　　// map.setCenterで地図が移動
+      map.setCenter(results[0].geometry.location);
+　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+  var Marker = new google.maps.Marker({
+        position: results[0].geometry.location,
+        map: map,
+         icon: {
+        url: '/assets/move.png',
+        scaledSize: new google.maps.Size(30, 30)
+        },
+        })
+    Marker.setMap(map);
+
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+    <% @shops.each do |s| %>
+        (function(){
+        var contentString = "住所：<%= s.address %>"
+
+        var marker = new google.maps.Marker({
+            position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
+            map: map,
+            title: contentString
+          });
+
+            infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+            content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
+          });
+
+            marker.addListener('click', function() { // マーカーをクリックしたとき
+            infoWindow.open(map, marker); // 吹き出しの表示
+          });
+        })();
+    <% end %>
   }
 
 
+function calcRoute(latitude, longitude){
+  var request = {
+        origin: currentLat+','+currentLng, //現在地(必須)。経度緯度かテキスト入力。
+        destination: latitude+','+longitude,  //目的地(必須)。経度緯度かテキスト入力。
+        travelMode: google.maps.DirectionsTravelMode.WALKING, //交通手段(必須
+        avoidHighways: false, //高速道路を使うかどうか。trueだと高速道路を可能な限りルートの計算から除外
+        avoidTolls: false, //有料道路を使うかどうか。trueだと有料道路を可能な限りルートの計算から除外
+      };
+        console.log(request)
+        directionsService = new google.maps.DirectionsService();
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setMap(map);
 
-    function codeAddress(){
-      // 入力を取得
-      let inputAddress = document.getElementById('address').value;
-
-      // geocodingしたあとmapを移動
-      geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-        if (status == 'OK') {
-    　　　　　　　　　　　　// map.setCenterで地図が移動
-          map.setCenter(results[0].geometry.location);
-    　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      var Marker = new google.maps.Marker({
-            position: results[0].geometry.location,
-            map: map,
-             icon: {
-            url: '/assets/move.png',
-            scaledSize: new google.maps.Size(30, 30)
-            },
-            })
-        Marker.setMap(map);
-
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+        directionsService.route(request, function(response,status){
+          if (status == google.maps.DirectionsStatus.OK){
+        console.log(response)
+          directionsDisplay.setDirections(response);
+        }else{
+          console.log(2)
         }
       });
-        <% @shops.each do |s| %>
-            (function(){
-            var contentString = "住所：<%= s.address %>"
-
-            var marker = new google.maps.Marker({
-                position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
-                map: map,
-                title: contentString
-              });
-
-                infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-                content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
-              });
-
-                marker.addListener('click', function() { // マーカーをクリックしたとき
-                infoWindow.open(map, marker); // 吹き出しの表示
-              });
-            })();
-        <% end %>
-      }
-
-
-function calcRoute(latitude, longitude){
-        var request = {
-                origin: currentLat+','+currentLng, //現在地(必須)。経度緯度かテキスト入力。
-                destination: latitude+','+longitude,  //目的地(必須)。経度緯度かテキスト入力。
-                travelMode: google.maps.DirectionsTravelMode.WALKING, //交通手段(必須
-                avoidHighways: false, //高速道路を使うかどうか。trueだと高速道路を可能な限りルートの計算から除外
-                avoidTolls: false, //有料道路を使うかどうか。trueだと有料道路を可能な限りルートの計算から除外
-              };
-              console.log(request)
-              directionsService = new google.maps.DirectionsService();
-              directionsDisplay = new google.maps.DirectionsRenderer();
-              directionsDisplay.setMap(map);
-
-              directionsService.route(request, function(response,status){
-                if (status == google.maps.DirectionsStatus.OK){
-              console.log(response)
-                directionsDisplay.setDirections(response);
-              }else{
-                console.log(2)
-              }
-            });
 };
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpE1N1jyqshzxRVMQyqRgD2MXCILhif74&callback=initMap" async defer></script>
