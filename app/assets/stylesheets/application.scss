@@ -56,7 +56,7 @@ body{
 	padding-bottom: 200px;
   width: 100%;
   height: 100%;
-  background-image: image-url(shuuchuusenn.jpg);
+  background-image: image-url("shuuchuusenn.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -96,7 +96,7 @@ container{
 
 .search{
   font-family: "midasi";
-  background-image: image-url(hukidasi.png);
+  background-image: image-url("hukidasi.png");
   background-size: 350px 500px;
   width: 350px;
   height: 500px;
@@ -150,7 +150,7 @@ container{
 }
 
 .btn{
-  background-image: image-url(wakusen.png);
+  background-image: image-url("wakusen.png");
   background-size: 100% 100%;
   color: black;
   padding: 20px 20px;
@@ -158,7 +158,7 @@ container{
 
 ///shops/show
 .shops-contents{
-    background-image: image-url(wakusen2.png);
+    background-image: image-url("wakusen2.png");
     background-size: cover;
     background-position: center;
     height: 550px;
@@ -166,7 +166,7 @@ container{
 }
 
 .shops-contents2{
-    background-image: image-url(2303.png);
+    background-image: image-url("2303.png");
     background-size: 700% 100%;
     background-position: center;
     padding: 60px 70px;
@@ -182,14 +182,14 @@ container{
 }
 
 .rank-content2{
-    background-image: image-url(wakusen2.png);
+    background-image: image-url("wakusen2.png");
     background-size: 115% 120%;
     background-position: center;
     padding: 60px 110px;
 }
 
 .quiz_tab{
-  background-image: image-url(en.png);
+  background-image: image-url("en.png");
   background-size: 100% 100%;
   padding-bottom: 10px;
   text-align: center;
@@ -213,7 +213,7 @@ container{
   width: 750px;
   height: 650px;
   padding: 70px 70px;
-  background-image: image-url(2303.png);
+  background-image: image-url("2303.png");
   background-size: 100% 100%;
   background-position: center;
 }
@@ -227,7 +227,7 @@ container{
 }
 
 .my_page-content2{
-  background-image: image-url(2303.png);
+  background-image: image-url("2303.png");
   background-size: 100% 100%;
   background-position: center;
   padding: 60px 60px;
@@ -240,7 +240,7 @@ container{
 
 //////sign_in/sign_up
 .form-body{
-  background-image: image-url(wakusen2.png);
+  background-image: image-url("wakusen2.png");
   background-size: 115% 120%;
   background-position: center;
   padding: 60px 60px;
@@ -262,7 +262,7 @@ container{
   height: 60px;
   padding: 18px 18px;
   text-size: 20px;
-  background-image: image-url(en.png);
+  background-image: image-url("en.png");
   background-size: cover;
 }
 
