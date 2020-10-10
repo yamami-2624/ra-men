@@ -35,20 +35,20 @@
                   <tr>
                     <div class="search-box">
                       <button id="getcurrentlocation" type="button" class="clear-decoration rank_btn" >
-                        <%= image_tag "move.png", class: "move" %>  現在地から選ぶ
+                        <%= image_tag asset_path("move.png"), class: "move" %>  現在地から選ぶ
                       </button>
                     </div>
                   </tr>
                     <div class="search-box">
                       <%= link_to  weekly_ranking_path, class: "rank_btn" do %>
-                       <%= image_tag "king.png", class: "king" %> ランキングから選ぶ
+                       <%= image_tag asset_path("king.png"), class: "king" %> ランキングから選ぶ
                       <% end %>
                     </div>
                   </tr>
     				    </tbody>
               </div>
             </div>
-            <%= image_tag "man.png", class: "man" %>
+            <%= image_tag asset_path("man.png"), class: "man" %>
           </div>
           <div class="col-xs-7">
             <div class="map-content">
@@ -176,7 +176,7 @@ function initMap(){
       <% end %>
     }
   }
-  
+
 
 
     function codeAddress(){
