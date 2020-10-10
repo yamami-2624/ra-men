@@ -1,4 +1,6 @@
 class Admin::RaamensController < ApplicationController
+  before_action :authenticate_admin!
+
 	  def new
       @shop = Shop.find(params[:shop_id])
       @raamen = Raamen.new
@@ -7,7 +9,7 @@ class Admin::RaamensController < ApplicationController
   	def index
       shop = Shop.find(params[:id])
       raamens = shop.raamen
-      @raamens = raamens.all
+      @raamens = raamens.all.page(params[:page]).per(5)
  	  end
 
     def create

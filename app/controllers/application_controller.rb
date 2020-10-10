@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     	if user_signed_in?
        	   shops_top_path
         else
-       		admin_root_path
+       		new_admin_shop_path
     	end
   end
 
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     if  user_signed_in?
        		shops_top_path
     else
-        admin_root_path
+        new_admin_shop_path
     end
   end
 

@@ -1,21 +1,26 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav class='nav navbar-nav navbar-left navbar-white bg-white' >
-      <h2 style="color: white;"></h2>
+      <h2 style="color: white;">
+       ラーメン白書
+      </h2>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right navbar-white bg-white">
         <% if user_signed_in? %>
-            <li><%= link_to ' トップ',shops_top_path %></li>
+            <li><%= link_to ' トップ',root_path %></li>
+            <li><%= link_to ' ランキング',weekly_ranking_path %></li>
             <li><%= link_to ' マイページ',my_page_path %></li>
+            <li><%= link_to ' about',about_path %></li>
             <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete %></li>
         <% elsif admin_signed_in? %>
-            <li><%= link_to ' 店舗登録',admin_shops_new_path %></li>
+            <li><%= link_to ' 店舗登録',new_admin_shop_path %></li>
             <li><%= link_to ' 店舗一覧',admin_shops_path %></li>
-            <li><%= link_to ' レビュー 一覧',admin_shop_raamen_reviews_path %></li>
+            <li><%= link_to ' 登録者 一覧',admin_users_path %></li>
             <li><%= link_to ' ログアウト',destroy_admin_session_path, method: :delete %></li></br>
         <% else %>
             <li><%= link_to ' トップ', shops_top_path %></li>
+            <li><%= link_to ' about',about_path %></li>
             <li><%= link_to ' ログイン', new_user_session_path %></li>
             <li><%= link_to ' 新規登録', new_user_registration_path %></li>
         <% end %>

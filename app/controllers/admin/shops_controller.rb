@@ -1,10 +1,12 @@
 class Admin::ShopsController < ApplicationController
+  before_action :authenticate_admin!
+  
 	def new
     @shop = Shop.new
   end
 
   def index
-    @shops = Shop.all
+    @shops = Shop.all.page(params[:page]).per(20)
  	end
 
   def create
@@ -19,7 +21,7 @@ class Admin::ShopsController < ApplicationController
 
  	def show
  		@shop = Shop.find(params[:id])
-    @raamens = @shop.raamens.all
+    @raamens = @shop.raamens.all.page(params[:page]).per(5)
   end
 
   def edit

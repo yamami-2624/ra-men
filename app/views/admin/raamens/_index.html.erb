@@ -1,6 +1,9 @@
 <% if raamens == nil %>
 	<h2>ラーメンの登録はまだありません</h2>
 <% else %>
+	<div class="fonts">
+		商品一覧
+	</div>
 	<table class="table">
 		<thead>
 			<tr>
@@ -8,19 +11,16 @@
 				<th>商品説明</th>
 				<th>価格</th>
 				<th>味</th>
-				<th>出汁</th>
 				<th>販売ステータス</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% raamens.each do |raamen| %>
 				<tr>
-					<td><%= link_to raamen.name, admin_shop_raamen_path(shop,raamen), class: "underline" %></td>
+					<td><%= link_to raamen.name, admin_shop_raamen_path(shop,raamen), class: "detail-btn" %></td>
 					<td><%= raamen.text %></td>
-					<td>
 					<td><%= raamen.price %>円</td>
 					<td><%= raamen.aji %></td>
-					<td><%= raamen.dashi %></td>
 					<td>
 						<% if raamen.is_active? %>
 							<span class="text-active">販売中</span>
@@ -31,5 +31,6 @@
 				</tr>
 			<% end %>
 		</tbody>
+		<%= paginate raamens %>
 	</table>
 <% end %>

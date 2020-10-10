@@ -1,0 +1,30 @@
+<% if reviews == nil %>
+	<h2>レビューの登録はまだありません</h2>
+<% else %>
+	<h2><%= user.name %>のレビュー一覧</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th>レビュー</th>
+				<th>点数</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% reviews.each do |review| %>
+				<tr>
+					<td>
+						<div class="image_field">
+							<%= attachment_image_tag review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image" %>
+						</div>
+					<td>
+					<td><%= review.review %></td>
+					<td><%= review.tennsuu %></td>
+					<td><%= link_to "詳細", admin_shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "underline" %></td>
+				</tr>
+			<% end %>
+		</tbody>
+		<%= paginate reviews %>
+	</table>
+<% end %>

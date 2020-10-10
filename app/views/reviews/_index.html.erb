@@ -1,7 +1,6 @@
-<% if reviews == nil %>
-	<h2>レビューの登録はまだありません</h2>
-<% else %>
-	<h2><%= name %>のレビュー一覧</h2>
+<div class = "about">
+	<%= name %>のレビュー一覧
+</div>
 	<table class="table">
 		<thead>
 			<tr>
@@ -19,11 +18,15 @@
 							<%= attachment_image_tag review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image" %>
 						</div>
 					<td>
-					<td><%= review.review %></td>
+					<td><%= truncate(review.review, :length => 15) %></td>
 					<td><%= review.tennsuu %></td>
-					<td><%= link_to "詳細", shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "underline" %></td>
+					<td><%= link_to "詳細", shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "detail-btn" %></td>
 				</tr>
 			<% end %>
+			<div class="col-xs-3 col-xs-offset-9">
+				<div class="paginate">
+					<td><%= paginate reviews %></td>
+				</div>
+			</div>
 		</tbody>
 	</table>
-<% end %>
