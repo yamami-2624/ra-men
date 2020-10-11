@@ -75,6 +75,7 @@ gem 'geocoder'
 gem "gon"
 gem 'geokit-rails'
 gem 'dotenv-rails'
+gem 'byebug'
 group :production do
   gem 'mysql2'
 end
