@@ -1,9 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-9 col-xs-offset-2">
-            <div class = "fonts">
-                ランキングページ
-            </div>
+            <%= image_tag asset_path("title2.png") %>
         </div>
         <div class="col-xs-3 col-xs-offset-3">
             <div class="quiz_tab">
@@ -17,7 +15,7 @@
             <div class="quiz_tab">
             <br>
               <%= link_to weekly_tenranking_path, class: "rank_btn" do %>
-                <%= image_tag "king.png", class: "king" %>    点数ランキング
+                <%= image_tag asset_path("king.png"), class: "king" %>    点数ランキング
               <% end %>
             </div>
         </div>
@@ -27,7 +25,7 @@
             <div class="quiz_tab">
             <br>
               <%= link_to weekly_tenranking_path, class: "rank_btn" do %>
-                <%= image_tag "king.png", class: "king" %>  週間
+                <%= image_tag asset_path("king.png"), class: "king" %>  週間
               <% end %>
             </div>
         </div>
@@ -56,9 +54,7 @@
             <br>
             <div class="rank-content2">
                 <table class="table">
-                <div class = "fonts">
-                    新着店舗
-                </div>
+                <%= image_tag asset_path("title3.png") %>
                         <thead>
                             <tr>
                                 <th>店名</th>

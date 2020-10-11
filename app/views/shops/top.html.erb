@@ -2,9 +2,7 @@
   <div class="container">
       <div class="row">
         <div class="col-xs-7 col-xs-offset-2">
-          <div class = "fonts">
-            ラーメンを食べに行こう！！
-          </div>
+          <%= image_tag asset_path("title.png") %>
         </div>
       </div>
       <br>
@@ -119,10 +117,10 @@ function initMap(){
     var currentMarker = new google.maps.Marker({
             position: pyrmont,
             map: map,
-            icon: {
-            url: '/assets/move.png',
-            scaledSize: new google.maps.Size(30, 30)
-            },
+            icon: new google.maps.MarkerImage(
+            '<%= image_tag asset_path("move.png") %>',
+            new google.maps.Size(80,50),
+            ),
             })
         currentMarker.setMap(map);
     }
@@ -145,7 +143,7 @@ function initMap(){
           position: pyrmont,
           map: map,
           icon: new google.maps.MarkerImage(
-          '/assets/move.png',
+          '<%= image_tag asset_path("move.png") %>',
           new google.maps.Size(80,50),
           ),
       });
@@ -161,7 +159,7 @@ function initMap(){
           });
 
         var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-            content:'<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" class= "go" onclick="calcRoute(<%= s.latitude %>, <%= s.longitude %>)"/> '// 吹き出しに表示する内容
+            content:'<%= link_to s.name, shop_path(s) %> '// 吹き出しに表示する内容
           });
 
             marker.addListener('click', function() { // マーカーをクリックしたとき
@@ -186,15 +184,15 @@ function codeAddress(){
 　　　　　　　　　　　　// map.setCenterで地図が移動
       map.setCenter(results[0].geometry.location);
 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-  var Marker = new google.maps.Marker({
-        position: results[0].geometry.location,
-        map: map,
-         icon: {
-        url: '/assets/move.png',
-        scaledSize: new google.maps.Size(30, 30)
-        },
-        })
-    Marker.setMap(map);
+  var currentMarker = new google.maps.Marker({
+          position: pyrmont,
+          map: map,
+          icon: new google.maps.MarkerImage(
+          '<%= image_tag asset_path("move.png") %>',
+          new google.maps.Size(80,50),
+          ),
+      });
+      currentMarker.setMap(map);
 
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
@@ -211,7 +209,7 @@ function codeAddress(){
           });
 
             infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-            content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
+            content: '<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" class= "go" onclick="calcRoute(<%= s.latitude %>, <%= s.longitude %>)"/>' // 吹き出しに表示する内容
           });
 
             marker.addListener('click', function() { // マーカーをクリックしたとき

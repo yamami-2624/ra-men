@@ -15,7 +15,7 @@
  */
 @import "bootstrap-sprockets";  /*ここを追加*/
 @import "bootstrap";            /*ここを追加*/
-
+@import url('https://fonts.googleapis.com/css2?family=Kosugi&display=swap');
 
 * {
   margin: 0;
@@ -25,14 +25,14 @@
 
 .rank_btn {
     color: black;
-    font-family: "midasi";
+    font-family: "midasi",'Kosugi', sans-serif;
     font-size: 22px;
     font-height: 32px;
 }
 
 .rank_btn-non{
     color: black;
-    font-family: "midasi";
+    font-family: "midasi",'Kosugi', sans-serif;
     font-size: 20px;
     font-height: 30px;
 }
@@ -59,10 +59,11 @@ body{
   background-image: image-url("shuuchuusenn.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .row{
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 container{
@@ -77,19 +78,19 @@ container{
 
 
 .fonts{
-  font-family: "Pigmo-00";
+  font-family: "Pigmo-00","Kosugi", sans-serif;;
   font-size: 50px;
   font-height: 70px;
 }
 
 .review-fonts{
-  font-family: "Pigmo-00";
+  font-family: "Pigmo-00",'Kosugi', sans-serif;;
   font-size: 40px;
   font-height: 60px;
 }
 
 .nav{
-  font-family: "Pigmo-00";
+  font-family: "Pigmo-00",'Kosugi', sans-serif;;
   font-size: 20px;
   font-height: 25px;
 }
@@ -123,14 +124,14 @@ container{
 
 .detail-btn{
   color: black;
-  font-family: "midasi";
+  font-family: "midasi",'Kosugi', sans-serif;;
   font-size: 15px;
   font-height: 20px;
   text-shadow: 5px 5px 5px #808080;
 }
 
 .about{
-  font-family: "midasi";
+  font-family: "midasi",'Kosugi', sans-serif;;
   font-size: 20px;
   font-height: 25px;
 }
@@ -143,7 +144,7 @@ container{
 }
 
 .juni{
-  font-family: "midasi";
+  font-family: "midasi",'Kosugi', sans-serif;;
   font-size: 20px;
   font-height: 25px;
   text-shadow: 5px 5px 5px #808080;
@@ -243,12 +244,13 @@ container{
   background-image: image-url("wakusen2.png");
   background-size: 115% 120%;
   background-position: center;
-  padding: 60px 60px;
+  padding: 50px 50px;
+  width: 400px;
 }
 
 //////reviews/show
 .midasi{
-  font-family: "midasi";
+  font-family: "midasi",'Kosugi', sans-serif;;
   font-size: 25px;
   font-height: 30px;
 }
@@ -296,6 +298,11 @@ body {
 body {
     background-image: none;
   }
+}
+
+
+.my_page_fonts{
+  font-family: "midasi",'Kosugi', sans-serif;
 }
 
 
