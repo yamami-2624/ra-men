@@ -159,7 +159,7 @@ function initMap(){
           });
 
         var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-            content:'<%= link_to s.name, shop_path(s) %> '// 吹き出しに表示する内容
+            content:'<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" class= "go" onclick="calcRoute(<%= s.latitude %>, <%= s.longitude %>)"/> '// 吹き出しに表示する内容
           });
 
             marker.addListener('click', function() { // マーカーをクリックしたとき
@@ -209,7 +209,7 @@ function codeAddress(){
           });
 
             infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-            content: '<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" class= "go" onclick="calcRoute(<%= s.latitude %>, <%= s.longitude %>)"/>' // 吹き出しに表示する内容
+            content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
           });
 
             marker.addListener('click', function() { // マーカーをクリックしたとき
