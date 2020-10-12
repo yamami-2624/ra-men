@@ -1,12 +1,8 @@
 <%= form_for(shop, url: url) do |f| %>
 	<div class="flex">
 		<div>
-			<%= f.label :shop_image, "画像" %>
-			<div class="image_field">
-				<%= attachment_image_tag shop, :shop_image, format: "jpeg", id: "img_prev", fallback: "no_image.jpg", class: "shop_image" %>
-				<span class="btn"><%= f.attachment_field :shop_image %>画像選択</span>
-				<p>選択するとプレビューされます。<br>画像未選択のままだと、<br>「画像準備中」になります。</p>
-			</div>
+			<%= attachment_image_tag shop, :shop_image, format: "jpeg", fallback: "no_image.jpg", class: "imag_field img-thumbnail img-responsive img_prev" %>
+			<span class="btn img_field" onclick="$('.img_field').click()"=><%= f.attachment_field :shop_image %>画像選択</span>
 		</div>
 		<table class="table">
 			<thead>
@@ -51,3 +47,6 @@
 		</div>
 	</div>
 <% end %>
+
+<style>
+</style>

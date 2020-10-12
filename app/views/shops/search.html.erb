@@ -12,7 +12,7 @@
 					<% @shop_search.each do |shop| %>
 						<tr>
 							<td><%= link_to shop.name, shop_path(shop), class: "underline" %></td>
-							<td><%= shop.address %>円</td>
+							<td><%= shop.address %></td>
 						</tr>
 					<% end %>
 				</tbody>
