@@ -117,10 +117,10 @@ function initMap(){
     var currentMarker = new google.maps.Marker({
             position: pyrmont,
             map: map,
-            icon: new google.maps.MarkerImage(
-            '<%= image_tag asset_path("move.png") %>',
-            new google.maps.Size(80,50),
-            ),
+            icon: {
+            url: '<%= asset_path("move.png") %>',
+            scaledSize: new google.maps.Size(30, 30)
+            },
             })
         currentMarker.setMap(map);
     }
@@ -142,10 +142,10 @@ function initMap(){
     var currentMarker = new google.maps.Marker({
           position: pyrmont,
           map: map,
-          icon: new google.maps.MarkerImage(
-          '<%= image_tag asset_path("move.png") %>',
-          new google.maps.Size(80,50),
-          ),
+          icon: {
+            url: '<%= asset_path("move.png") %>',
+            scaledSize: new google.maps.Size(30, 30)
+          },
       });
       currentMarker.setMap(map);
       <% @shops.each do |s| %>
@@ -187,10 +187,10 @@ function codeAddress(){
   var currentMarker = new google.maps.Marker({
           position: pyrmont,
           map: map,
-          icon: new google.maps.MarkerImage(
-          '<%= image_tag asset_path("move.png") %>',
-          new google.maps.Size(80,50),
-          ),
+          icon: {
+            url: '<%= asset_path("move.png") %>',
+            scaledSize: new google.maps.Size(30, 30)
+          },
       });
       currentMarker.setMap(map);
 
