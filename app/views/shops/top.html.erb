@@ -66,111 +66,111 @@ var currentLng = 0
 // let marker = []; // マーカーを複数表示させたいので、配列化
 //サイト開いた時に出すよう
 function initMap(){
-      geocoder = new google.maps.Geocoder()
+  geocoder = new google.maps.Geocoder()
 
-      map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.68123620000001, lng:139.7671248},
-          zoom: 18,
-      });
-    <% @shops.each do |s| %>
-          (function(){
-          var contentString = "住所：<%= s.address %>"
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.68123620000001, lng:139.7671248},
+      zoom: 18,
+});
+<% @shops.each do |s| %>
+  (function(){
+  var contentString = "住所：<%= s.address %>"
 
-          var marker = new google.maps.Marker({
-              position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
-              map: map,
-            });
+  var marker = new google.maps.Marker({
+      position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
+      map: map,
+    });
 
-          var　infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-              content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
-            });
+  var　infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+      content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
+    });
 
-              marker.addListener('click', function() { // マーカーをクリックしたとき
-              infoWindow.open(map, marker); // 吹き出しの表示
-            });
-          })();
-    <% end %>
+      marker.addListener('click', function() { // マーカーをクリックしたとき
+      infoWindow.open(map, marker); // 吹き出しの表示
+    });
+  })();
+<% end %>
 
 
 //現在地取得
-    document.getElementById('getcurrentlocation').onclick = function() {
-      geoLocationInit();
-    }
+document.getElementById('getcurrentlocation').onclick = function() {
+  geoLocationInit();
+}
 
-    function geoLocationInit() {
-      if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(success, fail);
-        } else {
-          createMap(pyrmont);
-      }
-    }
+function geoLocationInit() {
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, fail);
+    } else {
+      createMap(pyrmont);
+  }
+}
 
    // success
-   function success(position) {
-      currentLat = position.coords.latitude;
-      currentLng  = position.coords.longitude;
+function success(position) {
+  currentLat = position.coords.latitude;
+  currentLng  = position.coords.longitude;
 
-     var pyrmont = new google.maps.LatLng(currentLat,currentLng);
+ var pyrmont = new google.maps.LatLng(currentLat,currentLng);
 
-     createMap(pyrmont)
+ createMap(pyrmont)
 
-    var currentMarker = new google.maps.Marker({
-            position: pyrmont,
-            map: map,
-            icon: {
-            url: '<%= asset_path("move.png") %>',
-            scaledSize: new google.maps.Size(30, 30)
-            },
-            })
-        currentMarker.setMap(map);
-    }
+var currentMarker = new google.maps.Marker({
+      position: pyrmont,
+      map: map,
+      icon: {
+      url: '<%= asset_path("move.png") %>',
+      scaledSize: new google.maps.Size(30, 30)
+      },
+      })
+  currentMarker.setMap(map);
+}
 
     // fail
-    function fail(pyrmont) {
-      createMap(pyrmont);
-    }
+  function fail(pyrmont) {
+    createMap(pyrmont);
+  }
 
 
   // map表示
-  function createMap(pyrmont) {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: pyrmont,
-      zoom: 18
+function createMap(pyrmont) {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: pyrmont,
+    zoom: 18
+  });
+
+  // var currentPos = new google.maps.LatLng(currentLat, currentLng);
+  var currentMarker = new google.maps.Marker({
+        position: pyrmont,
+        map: map,
+        icon: {
+          url: '<%= asset_path("move.png") %>',
+          scaledSize: new google.maps.Size(30, 30)
+        },
     });
+    currentMarker.setMap(map);
+    <% @shops.each do |s| %>
+      (onload = function(){
+      var contentString = "住所：<%= s.address %>"
 
-    // var currentPos = new google.maps.LatLng(currentLat, currentLng);
-    var currentMarker = new google.maps.Marker({
-          position: pyrmont,
+      var marker = new google.maps.Marker({
+          position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
           map: map,
-          icon: {
-            url: '<%= asset_path("move.png") %>',
-            scaledSize: new google.maps.Size(30, 30)
-          },
-      });
-      currentMarker.setMap(map);
-      <% @shops.each do |s| %>
-        (onload = function(){
-        var contentString = "住所：<%= s.address %>"
+          title: contentString
+        });
 
-        var marker = new google.maps.Marker({
-            position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
-            map: map,
-            title: contentString
-          });
+      var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+          content:'<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" class= "go" onclick="calcRoute(<%= s.latitude %>, <%= s.longitude %>)"/> '// 吹き出しに表示する内容
+        });
 
-        var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-            content:'<%= link_to s.name, shop_path(s) %> <input type="button" value="ここに行く" class= "go" onclick="calcRoute(<%= s.latitude %>, <%= s.longitude %>)"/> '// 吹き出しに表示する内容
-          });
-
-            marker.addListener('click', function() { // マーカーをクリックしたとき
-            infoWindow.open(map, marker); // 吹き出しの表示
-          });
-            // ここから
-        // ここまで
-        })();
-    <% end %>
-    }
-    }
+          marker.addListener('click', function() { // マーカーをクリックしたとき
+          infoWindow.open(map, marker); // 吹き出しの表示
+        });
+          // ここから
+      // ここまで
+      })();
+  <% end %>
+  }
+  }
 
 
 
@@ -184,7 +184,7 @@ function codeAddress(){
 　　　　　　　　　　　　// map.setCenterで地図が移動
       map.setCenter(results[0].geometry.location);
 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-  var currentMarker = new google.maps.Marker({
+  var Marker = new google.maps.Marker({
           position: pyrmont,
           map: map,
           icon: {
@@ -192,7 +192,7 @@ function codeAddress(){
             scaledSize: new google.maps.Size(30, 30)
           },
       });
-      currentMarker.setMap(map);
+      Marker.setMap(map);
 
     } else {
       alert('Geocode was not successful for the following reason: ' + status);

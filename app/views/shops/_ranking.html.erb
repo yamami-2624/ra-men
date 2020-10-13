@@ -1,44 +1,44 @@
 <% if shop == nil %>
     <h1>登録がありません</h1>
 <% else %>
-                    <thead>
-                        <tr>
-                            <th>順位</th>
-                            <th>店名</th>
-                            <th>住所</th>
-                            <th>点数</th>
-                            <th>お気に入り</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% shop.each_with_index do |shop, i| %>
-                        <% i += 1 %>
-                            <tr>
-                                <td>
-                                    <div class="juni">
-                                        <%= i %>位
-                                    </div>
-                                </td>
-                                <td><%= link_to shop.name, shop_path(shop), class: "detail-btn" %></td>
-                                <td><%= shop.address %></td>
-                                <% if shop.reviews.average(:tennsuu) == nil %>
-                                    <td></td>
-                                <% else %>
-                                    <div class ="star-image">
-                                        <% star = shop.reviews.average(:tennsuu).ceil.to_s %>
-                                        <% file = "star"+star+".png" %>
-                                        <td>
-                                            <%= image_tag file, class: "star-image" %>
-                                            <%= shop.reviews.average(:tennsuu).round(2) %>
-                                        </td>
-                                    </div>
-                                <% end %>
-                                <td><%= shop.favorites.count %> いいね</td>
-                            </tr>
-                        <% end %>
-                    </tbody>
-                    <tr><%= paginate shop %></tr>
-            	<% end %>
+    <thead>
+        <tr>
+            <th>順位</th>
+            <th>店名</th>
+            <th>住所</th>
+            <th>点数</th>
+            <th>お気に入り</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% shop.each_with_index do |shop, i| %>
+        <% i += 1 %>
+            <tr>
+                <td>
+                    <div class="juni">
+                        <%= i %>位
+                    </div>
+                </td>
+                <td><%= link_to shop.name, shop_path(shop), class: "detail-btn" %></td>
+                <td><%= shop.address %></td>
+                <% if shop.reviews.average(:tennsuu) == nil %>
+                    <td></td>
+                <% else %>
+                    <div class ="star-image">
+                        <% star = shop.reviews.average(:tennsuu).ceil.to_s %>
+                        <% file = "star"+star+".png" %>
+                        <td>
+                            <%= image_tag file, class: "star-image" %>
+                            <%= shop.reviews.average(:tennsuu).round(2) %>
+                        </td>
+                    </div>
+                <% end %>
+                <td><%= shop.favorites.count %> いいね</td>
+            </tr>
+        <% end %>
+    </tbody>
+    <tr><%= paginate shop %></tr>
+<% end %>
 
 
 

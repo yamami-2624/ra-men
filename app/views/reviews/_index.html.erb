@@ -1,32 +1,32 @@
 <div class = "about">
 	<%= name %>のレビュー一覧
 </div>
-	<table class="table">
-		<thead>
+<table class="table">
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th>レビュー</th>
+			<th>点数</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% reviews.each do |review| %>
 			<tr>
-				<th></th>
-				<th></th>
-				<th>レビュー</th>
-				<th>点数</th>
+				<td>
+					<div class="image_field">
+						<%= attachment_image_tag review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image" %>
+					</div>
+				<td>
+				<td><%= truncate(review.review, :length => 15) %></td>
+				<td><%= review.tennsuu %></td>
+				<td><%= link_to "詳細", shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "detail-btn" %></td>
 			</tr>
-		</thead>
-		<tbody>
-			<% reviews.each do |review| %>
-				<tr>
-					<td>
-						<div class="image_field">
-							<%= attachment_image_tag review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image" %>
-						</div>
-					<td>
-					<td><%= truncate(review.review, :length => 15) %></td>
-					<td><%= review.tennsuu %></td>
-					<td><%= link_to "詳細", shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "detail-btn" %></td>
-				</tr>
-			<% end %>
-			<div class="col-xs-3 col-xs-offset-9">
-				<div class="paginate">
-					<td><%= paginate reviews %></td>
-				</div>
+		<% end %>
+		<div class="col-xs-3 col-xs-offset-9">
+			<div class="paginate">
+				<td><%= paginate reviews %></td>
 			</div>
-		</tbody>
-	</table>
+		</div>
+	</tbody>
+</table>
