@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 	devise_for :admin, controllers: {
     sessions: 'admin/sessions',
     passwords:     'admin/passwords',
-    registrations: 'admin/registrations',
   }
   devise_scope :admin do
     get '/admin/sign_out' => 'devise/sessions#destroy'
