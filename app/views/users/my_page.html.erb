@@ -12,7 +12,6 @@
 							<div class="my_page_fonts">
 								<th>登録名</th>
 								<th>メールアドレス</th>
-								<th></th>
 							</div>
 						</tr>
 						</thead>
@@ -20,7 +19,6 @@
 							<tr>
 								<td><%= current_user.name %></td>
 								<td><%= current_user.email %></td>
-								<td><%= link_to "パスワードを変更する", edit_user_password_path, class: "detail-btn" %></td>
 							</tr>
 						</tbody>
 					</table>
