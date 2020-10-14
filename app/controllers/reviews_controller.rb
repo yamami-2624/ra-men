@@ -41,7 +41,13 @@ class ReviewsController < ApplicationController
   	def update
       shop = Shop.find(params[:shop_id])
       raamen = Raamen.find(params[:raamen_id])
+      user = User.find(params[:user_id])
       review = Review.find(params[:id])
+      if user_id == current_user_id
+        review.update(review_params) ? (redirect_to shop_path(shop)) : (render :edit)
+      else
+        render :new
+      end
     	review.update(review_params) ? (redirect_to shop_path(shop)) : (render :edit)
   	end
 
