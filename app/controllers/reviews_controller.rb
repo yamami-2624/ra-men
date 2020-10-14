@@ -42,8 +42,26 @@ class ReviewsController < ApplicationController
       shop = Shop.find(params[:shop_id])
       raamen = Raamen.find(params[:raamen_id])
       review = Review.find(params[:id])
-    	review.update(review_params) ? (redirect_to shop_path(shop)) : (render :edit)
-  	end
+    	if review.user_id == current_user.id
+        review.update(review_params) ? (redirect_to shop_path(shop)) : (render :edit)
+      else
+        render :new
+      end
+    end
+
+    def destroy
+      review = Review.find(params[:id])
+      if review.user_id == current_user.id
+        @shop = Shop.find(params[:shop_id])
+        @reviews = @shop.reviews.order("id DESC").page(params[:page]).per(3)
+        review.destroy
+        render('shops/show')
+      else
+        @shop = Shop.find(params[:shop_id])
+        @reviews = @shop.reviews.order("id DESC").page(params[:page]).per(3)
+        render('shops/top')
+      end
+    end
 
     def ranking
     end

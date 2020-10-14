@@ -36,7 +36,11 @@
 					</tbody>
 				</table>
 				<div class="flex align-center pl5">
-					<%= link_to "編集する", edit_shop_raamen_review_path(@shop,@raamen,@review), class: "btn" %>
+					<% if @review.user_id == current_user.id %>
+						<%= link_to "編集する", edit_shop_raamen_review_path(@shop,@raamen,@review), class: "btn" %>
+					<% else %>
+						<br></br>
+					<% end %>
 				</div>
 			</div>
 		</div>

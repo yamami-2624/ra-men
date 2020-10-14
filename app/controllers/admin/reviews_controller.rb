@@ -15,10 +15,8 @@ class Admin::ReviewsController < ApplicationController
   	end
 
     def destroy
-      @shop = Shop.find(params[:shop_id])
-      @raamen = Raamen.find(params[:raamen_id])
-      review = Review.find_by(shop_id:@shop.id, raamen_id:@raamen.id, id: params[:id])
-      review.destroy
+      review = Review.find(params[:id])
+      review.destroy!
       redirect_to admin_users_path
     end
 end
