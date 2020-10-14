@@ -307,10 +307,11 @@ body {
 
 
 .review_image{
-  width: 120px;
+  max-width: 120px;
   height: 80px;
 
   object-fit: cover;
+  object-position: 0% 0% ;
 }
 
 .raamen_image{
@@ -318,22 +319,21 @@ body {
   height: 150px;
 
   object-fit: cover;
+  object-position: 0% 0% ;
 }
 
 .shop_image{
-  width: 320px;
-  height: 250px;
+  width: 50%;
+  max-height: 300px;
+  object-fit:cover;
+  object-position: 0% 0% ;
+}
 
+.attachment{
   object-fit: cover;
+  object-position: 0% 0% ;
 }
 
-.image_field {
-  width: 220px;
-  text-align: center;
-  p {
-    margin-top: 10px;
-    text-align: left;
-  }
-}
+
 //////admin/user/shou
 

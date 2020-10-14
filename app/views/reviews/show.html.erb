@@ -4,11 +4,9 @@
 			<div class = "fonts">
 				レビュー詳細
 			</div>
-			<div class="flex">
-				<div>
-					<div class="image_field">
-						<%= attachment_image_tag @review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image" %>
-					</div>
+			<div>
+				<div class="image_field">
+					<%= attachment_image_tag @review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image_show" %>
 				</div>
 			</div>
 				<table class="review-table" style="table-layout:fixed;width:100%;">
@@ -51,6 +49,14 @@
 .review-table{
 width: 400px;
 height: 400px;
+}
+
+.review_image_show{
+	width: 500px;
+	max-width: 500px;
+  	height: 300px;
+	object-fit:cover;
+	object-position: 100% 0% ;
 }
 
 td{

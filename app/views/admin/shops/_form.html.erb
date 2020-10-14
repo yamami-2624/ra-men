@@ -1,7 +1,7 @@
 <%= form_for(shop, url: url) do |f| %>
 	<div class="flex">
 		<div>
-			<%= attachment_image_tag shop, :shop_image, format: "jpeg", fallback: "no_image.jpg",width: "100px", heigh: "90px",class: "imag_field img-thumbnail img-responsive img_prev"  %>
+			<%= attachment_image_tag @shop, :shop_image, format: "jpeg", id: "img_prev", fallback: "no_image.jpg", class: "shop_image" %>
 			<span class="btn img_field" onclick="$('.img_field').click()"=><%= f.attachment_field :shop_image %>画像選択</span>
 		</div>
 		<table class="table">

@@ -4,7 +4,7 @@
 			<div>
 				<%= f.label :image, "画像" %>
 				<div class="imag_field">
-					<%= attachment_image_tag review, :review_image, format: "jpeg", onClick: "$('.img_field').click()", fallback: "no_image.jpg", class: "review_image" %>
+					<%= attachment_image_tag review, :review_image, format: "jpeg", fallback: "no_image.jpg", class: "review_image" %>
 					<span class="btn imag_field"><%= f.attachment_field :review_image %>画像選択</span>
 				</div>
 			</div>

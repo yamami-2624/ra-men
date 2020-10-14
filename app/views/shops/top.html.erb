@@ -198,26 +198,27 @@ function codeAddress(){
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
-    <% @shops.each do |s| %>
-        (function(){
-        var contentString = "住所：<%= s.address %>"
+}
+<% @shops.each do |s| %>
+    (function(){
+    var contentString = "住所：<%= s.address %>"
 
-        var marker = new google.maps.Marker({
-            position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
-            map: map,
-            title: contentString
-          });
+    var marker = new google.maps.Marker({
+        position:{lat: <%= s.latitude %>, lng: <%= s.longitude %>},
+        map: map,
+        title: contentString
+      });
 
-            infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-            content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
-          });
+        infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: '<%= link_to s.name, shop_path(s) %>' // 吹き出しに表示する内容
+      });
 
-            marker.addListener('click', function() { // マーカーをクリックしたとき
-            infoWindow.open(map, marker); // 吹き出しの表示
-          });
-        })();
-    <% end %>
-  }
+        marker.addListener('click', function() { // マーカーをクリックしたとき
+        infoWindow.open(map, marker); // 吹き出しの表示
+      });
+    })();
+<% end %>
+
 
 
 function calcRoute(latitude, longitude){
