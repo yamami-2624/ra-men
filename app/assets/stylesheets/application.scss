@@ -306,6 +306,34 @@ body {
 }
 
 
+.review_image{
+  width: 120px;
+  height: 80px;
 
+  object-fit: cover;
+}
+
+.raamen_image{
+  width: 220px;
+  height: 150px;
+
+  object-fit: cover;
+}
+
+.shop_image{
+  width: 320px;
+  height: 250px;
+
+  object-fit: cover;
+}
+
+.image_field {
+  width: 220px;
+  text-align: center;
+  p {
+    margin-top: 10px;
+    text-align: left;
+  }
+}
 //////admin/user/shou
 

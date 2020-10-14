@@ -1,13 +1,14 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
+        <div class="col-xs-4 col-xs-offset-2">
 			<div class = "fonts">商品詳細</div>
 			<div class="flex">
 				<div>
 					<div class="image_field">
-						<%= attachment_image_tag @raamen, :raamen_image, format: "jpeg", id: "img_prev", fallback: "no_image.jpg", class: "raamen_image" %>
+						<%= attachment_image_tag @raamen, :raamen_image, format: "jpeg", id: "img_prev", fallback: "no_image.jpg",width: '80%', height: '80%', class: "raamen_image" %>
 					</div>
 				</div>
+			</div>
 				<table class="table">
 					<thead>
 						<tr>
@@ -59,3 +60,8 @@
 		</div>
 	</div>
 </div>
+
+
+<style>
+</style>
+
