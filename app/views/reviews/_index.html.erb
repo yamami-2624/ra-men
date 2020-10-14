@@ -7,7 +7,6 @@
 			<th></th>
 			<th></th>
 			<th>レビュー</th>
-			<th>点数</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -19,7 +18,6 @@
 					</div>
 				<td>
 				<td><%= truncate(review.review, :length => 15) %></td>
-				<td><%= review.tennsuu %></td>
 				<td><%= link_to "詳細", shop_raamen_review_path(review.shop_id,review.raamen_id,review), class: "detail-btn" %></td>
 			</tr>
 		<% end %>

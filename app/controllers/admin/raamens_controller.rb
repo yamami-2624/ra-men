@@ -40,7 +40,7 @@ class Admin::RaamensController < ApplicationController
 
   	private
   	def raamen_params
-      params.require(:raamen).permit(:aji, :dashi, :review_id, :name, :price, :raamen_image_id, :text, :is_active)
+      params.require(:raamen).permit(:aji, :dashi, :review_id, :name, :price, :raamen_image, :text, :is_active)
   	end
 
 

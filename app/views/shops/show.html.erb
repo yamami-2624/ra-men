@@ -4,6 +4,9 @@
 			<div class = "fonts">
                 店舗詳細情報
             </div>
+                <div class="image_field">
+                        <%= attachment_image_tag @raamen, :raamen_image, format: "jpeg", id: "img_prev", fallback: "no_image.jpg",width: '80%', height: '80%', class: "raamen_image" %>
+                </div>
                 <div class= "shops-contents">
     				<%= render 'admin/shops/detail', shop: @shop %>
                     <div class="table">

@@ -2,7 +2,10 @@
     <div class="row">
         <div class="col-xs-5">
 			<div class="fonts">店詳細</div>
-			<div class= "shops-contents">
+            <div class="image_field">
+                <%= attachment_image_tag @shop, :shop_image, format: "jpeg", id: "img_prev", fallback: "no_image.jpg", class: "shop_image" %>
+            </div>
+            <div class= "shops-contents">
 				<%= render 'admin/shops/detail', shop: @shop %>
                 <br>
                 <br>
@@ -21,3 +24,6 @@
         </div>
     </div>
 </div>
+
+<style>
+</style>
