@@ -3,6 +3,9 @@
         <div class="col-xs-7 col-xs-offset-2">
 			<section class="inner">
 				<h2 class="section-ttl">新規店舗の保存</h2>
+				<% if @shop.errors.any? %>
+				   <h2>名前と住所を登録してください。</h2>
+				<% end %>
 			  <%= render 'form', shop: @shop, url: admin_shops_path(@shop), submit: '保存' %>
 			</section>
 		</div>

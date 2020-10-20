@@ -11,11 +11,11 @@ class Admin::ShopsController < ApplicationController
 
   def create
    	 @shop = Shop.new(shop_params)
-	    if @shop.save!
+	    if @shop.save
 	      redirect_to admin_shops_path
 	    else
 	      @shops = Shop.all
-	      render :index
+	      render :new
 	  	end
 	end
 

@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-xs-7 col-xs-offset-2">
 			<h2 class="section-ttl">新規店舗の更新</h2>
+			<% if @shop.errors.any? %>
+				   <h2>名前と住所を登録してください。</h2>
+			<% end %>
 			  <%= render 'form', shop: @shop, url: admin_shop_path(@shop), submit: '更新' %>
 			  <%= button_to '削除', admin_shop_path(@shop), method: :delete, data: { confirm: '本当に削除しますか?' },class: "btn" %>
 		</div>

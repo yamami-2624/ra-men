@@ -1,3 +1,6 @@
+<% if raamen.errors.any? %>
+	<h2>名前と住所を登録してください。</h2>
+<% end %>
 <%= form_with model: raamen, url: admin_shop_raamens_path(@shop.id) do |f| %>
 	<div class="flex">
 		<div>

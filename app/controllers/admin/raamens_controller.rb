@@ -18,6 +18,8 @@ class Admin::RaamensController < ApplicationController
       if raamen.save
         redirect_to admin_shop_path(shop)
       else
+        @shop = Shop.find(params[:shop_id])
+        @raamen = Raamen.new
         render :new
       end
     end

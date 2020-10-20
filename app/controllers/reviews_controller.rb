@@ -25,9 +25,12 @@ class ReviewsController < ApplicationController
       review.shop_id = shop.id
       review.raamen_id = raamen.id
       review.user_id = current_user.id
-      if review.save!
+      if review.save
         redirect_to shop_path(shop)
       else
+        @shop = Shop.find(params[:shop_id])
+        @raamen = Raamen.find(params[:raamen_id])
+        @review = Review.new
         render :new
       end
     end
