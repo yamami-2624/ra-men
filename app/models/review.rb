@@ -5,4 +5,5 @@ class Review < ApplicationRecord
 	attachment :review_image
 
 	validates  :tennsuu, length: { maximum: 5 }
+	validates  :review, presence: true
 end

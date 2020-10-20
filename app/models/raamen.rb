@@ -4,6 +4,9 @@ class Raamen < ApplicationRecord
 	validates :is_active, inclusion: {in: [true, false]}
 	attachment :raamen_image
 
+	validates :name, presence: true
+
+
 	def self.search(search)
     return Raamen.all unless search
     Raamen.where('name LIKE(?)', "%#{search}%")
