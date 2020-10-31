@@ -244,7 +244,7 @@ function calcRoute(latitude, longitude){
       });
 };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpE1N1jyqshzxRVMQyqRgD2MXCILhif74&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
 
 <style>
 </style>
