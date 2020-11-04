@@ -110,25 +110,25 @@ function success(position) {
   currentLat = position.coords.latitude;
   currentLng  = position.coords.longitude;
 
- var pyrmont = new google.maps.LatLng(currentLat,currentLng);
+  var pyrmont = new google.maps.LatLng(currentLat,currentLng);
 
- createMap(pyrmont)
+  createMap(pyrmont)
 
-var currentMarker = new google.maps.Marker({
-      position: pyrmont,
-      map: map,
-      icon: {
-      url: '<%= asset_path("move.png") %>',
-      scaledSize: new google.maps.Size(30, 30)
-      },
-      })
+  var currentMarker = new google.maps.Marker({
+        position: pyrmont,
+        map: map,
+        icon: {
+        url: '<%= asset_path("move.png") %>',
+        scaledSize: new google.maps.Size(30, 30)
+        },
+  })
   currentMarker.setMap(map);
 }
 
     // fail
-  function fail(pyrmont) {
+function fail(pyrmont) {
     createMap(pyrmont);
-  }
+}
 
 
   // map表示
@@ -168,9 +168,9 @@ function createMap(pyrmont) {
           // ここから
       // ここまで
       })();
-  <% end %>
+    <% end %>
   }
-  }
+}
 
 
 
@@ -184,6 +184,8 @@ function codeAddress(){
 　　　　　　　　　　　　// map.setCenterで地図が移動
       map.setCenter(results[0].geometry.location);
 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+  var pyrmont = results[0].geometry.location;
+
   var Marker = new google.maps.Marker({
           position: pyrmont,
           map: map,

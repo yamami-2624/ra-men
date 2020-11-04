@@ -20,4 +20,12 @@ class Shop < ApplicationRecord
 	      Shop.all #全て表示。
 	    end
 	end
+
+	def self.weekly
+		self.joins(:favorites).where(favorites: {created_at: Time.now.all_week}).group(:id).order('count(shop_id) desc')
+	end
+
+	def self.pagination
+		self.page(params[:page]).per(5)
+	end
 end

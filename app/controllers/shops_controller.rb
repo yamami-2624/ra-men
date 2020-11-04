@@ -18,8 +18,7 @@ class ShopsController < ApplicationController
     end
 
   	def weekly_ranking
-      @shop_favorites = Shop.joins(:favorites).where(favorites: {created_at: Time.now.all_week})
-      .group(:id).order('count(shop_id) desc').page(params[:page]).per(5)
+      @shop_favorites = Shop.weekly.page(params[:page]).per(5)
       @shop_new = Shop.all.order("id DESC").page(params[:page]).per(5)
     end
 
